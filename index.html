@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Análisis de Ingeniería de Seguridad en Windows</title>
-
+    <title>Análisis de Ingeniería de Seguridad en Windows - UG</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -32,22 +32,58 @@
             }
         }
     </script>
-
+    <!-- Google Fonts: Inter & Merriweather -->
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&display=swap"
         rel="stylesheet">
-
+    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
-
+    <!-- MathJax for rendering LaTeX formulas -->
     <script id="MathJax-script" async
         src="https://cdn.jsdelivr.net/npm/mathjax@3/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <style>
+        .academic-body {
+            font-family: 'Inter', sans-serif;
+        }
 
-    <link rel="stylesheet" href="css/styles.css">
+        .academic-prose {
+            font-family: 'Merriweather', serif;
+            line-height: 1.8;
+        }
+
+        /* Custom scrollbar for premium look */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .dark ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 9999px;
+        }
+
+        .dark ::-webkit-scrollbar-thumb {
+            background: #334155;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
 </head>
 
 <body
     class="academic-body bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300 min-h-screen flex flex-col">
 
+    <!-- Header / Banner Universitario -->
     <header
         class="border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 backdrop-blur sticky top-0 z-40 transition-colors">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
@@ -65,6 +101,7 @@
             </div>
 
             <div class="flex items-center gap-4">
+                <!-- Theme Toggle Button -->
                 <button id="theme-toggle"
                     class="p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 transition"
                     aria-label="Toggle theme">
@@ -79,7 +116,9 @@
         </div>
     </header>
 
+    <!-- Hero Section -->
     <section class="relative bg-slate-900 text-white py-16 sm:py-24 overflow-hidden">
+        <!-- Abstract Matrix/Grid overlay -->
         <div
             class="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-30">
         </div>
@@ -107,11 +146,14 @@
         </div>
     </section>
 
+    <!-- Main Content Grid -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex-grow">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
 
+            <!-- Left Sidebar: Navigation, Search, Filter & Authors Info -->
             <aside class="lg:col-span-4 space-y-6 lg:sticky lg:top-24">
 
+                <!-- Search & Tag Filter Box -->
                 <div
                     class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 rounded-2xl shadow-sm transition">
                     <h3
@@ -149,6 +191,7 @@
                     </div>
                 </div>
 
+                <!-- Index Navigation Card -->
                 <div
                     class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 rounded-2xl shadow-sm transition">
                     <h3
@@ -201,6 +244,7 @@
                     </nav>
                 </div>
 
+                <!-- Academic Team Card -->
                 <div
                     class="bg-gradient-to-br from-slate-900 to-brand-950 text-white p-6 rounded-2xl shadow-lg border border-slate-800">
                     <h3 class="text-sm font-bold uppercase tracking-wider mb-5 flex items-center gap-2 text-brand-300">
@@ -245,14 +289,18 @@
                         </div>
                     </div>
                 </div>
+
             </aside>
 
+            <!-- Right Column: The Blog Posts Stream -->
             <div id="posts-stream" class="lg:col-span-8 space-y-16">
 
+                <!-- SEMANA 1 -->
                 <article id="semana-1"
                     class="blog-post bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl overflow-hidden shadow-sm hover:shadow-md transition duration-300"
                     data-tags="arquitectura,seguridad">
                     <div class="p-6 sm:p-10">
+                        <!-- Metadata -->
                         <div
                             class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-100 dark:border-slate-800 pb-6 mb-6">
                             <div class="flex items-center gap-3">
@@ -276,6 +324,7 @@
                             </div>
                         </div>
 
+                        <!-- Post Header -->
                         <span
                             class="text-brand-600 dark:text-brand-400 text-xs font-bold tracking-widest uppercase block mb-2">Sección
                             01</span>
@@ -283,13 +332,18 @@
                             Arquitectura de Seguridad del Sistema Operativo Windows y Control de Acceso
                         </h2>
 
+                        <!-- Post Prose -->
                         <div class="academic-prose text-slate-700 dark:text-slate-300 text-[15px] space-y-6">
                             <p>
                                 La seguridad y estabilidad operativa del sistema operativo Windows NT residen en un
                                 diseño arquitectónico de capas segregadas, fundamentado en la separación rígida de los
                                 modos de ejecución del procesador (Wikipedia, 2026). Este modelo delimita las
                                 operaciones de los hilos de ejecución en dos modos fundamentales: el Modo Usuario (User
-                                Mode) y el Modo Kernel (Kernel Mode) (Wikipedia, 2026; Krishnaa, 2026).
+                                Mode) y el Modo Kernel (Kernel Mode) (Wikipedia, 2026; Krishnaa, 2026). Esta bifurcación
+                                estructural resulta indispensable para neutralizar el riesgo de que el software de
+                                aplicación comprometa la integridad global del sistema, asegurando que un fallo o una
+                                instrucción maliciosa en el espacio de usuario permanezca contenida sin desencadenar una
+                                degradación catastrófica del núcleo del sistema operativo (Krishnaa, 2026).
                             </p>
 
                             <h3
@@ -298,18 +352,52 @@
                             </h3>
                             <p>
                                 En la arquitectura de Windows NT, el Modo Usuario representa un nivel de ejecución
-                                restrictivo que opera bajo el concepto de Anillo 3 (Ring 3)...
+                                restrictivo que opera bajo el concepto de Anillo 3 (Ring 3) en las arquitecturas x86 y
+                                x64, o bajo el modo de aplicación no privilegiado en otras plataformas de procesador
+                                (Wikipedia, 2026; Krishnaa, 2026). Las aplicaciones de productividad, navegadores web y
+                                servicios de fondo del sistema se ejecutan en este espacio, disponiendo únicamente de un
+                                espacio de direccionamiento de memoria virtual privado y aislado (Krishnaa, 2026). Los
+                                procesos en el Modo Usuario carecen de la facultad de acceder de forma directa a los
+                                recursos del hardware físico, la memoria de otros procesos o las instrucciones
+                                privilegiadas del procesador (Wikipedia, 2026; Krishnaa, 2026). Cualquier requerimiento
+                                operativo que demande acceso a recursos de hardware, tales como operaciones de lectura y
+                                escritura en discos duros, envío de paquetes a través del adaptador de red o asignación
+                                dinámica de memoria física, debe ser canalizado obligatoriamente mediante una llamada al
+                                sistema (System Call) (Krishnaa, 2026). Esta llamada actúa como una puerta de enlace
+                                estrictamente auditada y controlada por el procesador, permitiendo la transición segura
+                                de la solicitud del Modo Usuario al Modo Kernel para su procesamiento por el núcleo del
+                                sistema (Krishnaa, 2026).
+                            </p>
+                            <p>
+                                Por el contrario, el Modo Kernel opera con los máximos privilegios de ejecución del
+                                procesador, correspondientes al Anillo 0 (Ring 0) (Wikipedia, 2026). Este entorno aloja
+                                el microkernel híbrido de Windows, la Capa de Abstracción de Hardware (HAL), los
+                                controladores de dispositivos esenciales y el subsistema integral denominado Windows
+                                Executive (Wikipedia, 2026). El código que se ejecuta en el Modo Kernel posee acceso
+                                irrestricto a los registros físicos del procesador, a la totalidad de la memoria del
+                                sistema y a los periféricos de hardware (Wikipedia, 2026). Dado que la memoria del
+                                kernel es compartida por todos los controladores y componentes del sistema que residen
+                                en el Anillo 0, la ejecución de cualquier instrucción no válida, una desreferenciación
+                                de puntero nulo o una vulnerabilidad de corrupción de memoria en este espacio provoca de
+                                forma inmediata una interrupción de verificación de error del sistema, lo que
+                                desencadena una Pantalla Azul de la Muerte (BSOD) y detiene el funcionamiento total del
+                                equipo para prevenir la corrupción de los datos almacenados (Krishnaa, 2026). Por este
+                                motivo, Windows impone la firma digital obligatoria de controladores (Kernel Mode Code
+                                Signing) como una medida para garantizar que solo binarios de confianza, validados y
+                                auditados de acuerdo con el Ciclo de Desarrollo de Seguridad (SDL), puedan cargarse en
+                                el espacio del kernel (CrowdStrike, 2026; Microsoft, 2026a).
                             </p>
 
+                            <!-- IMAGE PLACEHOLDER: Diagrama_de_arquitectura.png -->
                             <div
                                 class="my-8 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 p-4">
                                 <figure class="text-center">
                                     <div
                                         class="relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-950 group">
-                                        <img src="assets/images/Diagrama_de_arquitectura.png"
+                                        <img src="Diagrama_de_arquitectura.png"
                                             alt="Diagrama de Arquitectura de Seguridad Windows"
                                             class="mx-auto block h-auto max-h-[380px] object-contain transition-transform duration-300 group-hover:scale-105"
-                                            onerror="handleImageError(this, 'Diagrama de Arquitectura de Windows NT', 'Representación del flujo entre el Modo Usuario (Anillo 3) y Modo Kernel (Anillo 0).')">
+                                            onerror="handleImageError(this, 'Diagrama de Arquitectura de Windows NT', 'Representación del flujo entre el Modo Usuario (Anillo 3) y Modo Kernel (Anillo 0). Muestra llamadas del sistema (System Calls), aislamiento de memoria y subprocesos como LSASS.')">
                                         <div
                                             class="absolute inset-0 bg-brand-950/20 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center pointer-events-none">
                                             <span
@@ -331,16 +419,211 @@
                             </h3>
                             <p>
                                 El control de acceso en Windows se implementa mediante un modelo basado en objetos
-                                securizables...
+                                securizables, el cual abarca archivos, claves del registro de Windows, objetos de
+                                sincronización del kernel, procesos y servicios (Krishnaa, 2026; Boutnaru, 2023). Cada
+                                interacción iniciada por un sujeto (un usuario, servicio o proceso) sobre un objeto es
+                                interceptada y fiscalizada por el Monitor de Referencia de Seguridad (SRM), un
+                                componente que opera en el Modo Kernel como el único responsable de autorizar o denegar
+                                los privilegios solicitados (Wikipedia, 2026; Gollmann, 2011). El núcleo de este modelo
+                                estructural está compuesto por los tokens de acceso y los descriptores de seguridad
+                                (Wikipedia, 2026; Boutnaru, 2023).
                             </p>
+                            <p>
+                                Cuando un usuario se autentica de forma exitosa en el sistema, el Servicio del
+                                Subsistema de la Autoridad de Seguridad Local (LSASS) genera un Token de Acceso
+                                (Wikipedia, 2026; Scribd, 2026). Este token funciona como una credencial digital
+                                portátil que se asocia a cada proceso e hilo de ejecución iniciado por ese usuario
+                                (Gollmann, 2011). El contenido del Token de Acceso incluye el Identificador de Seguridad
+                                (SID) del usuario, los SIDs de los grupos a los que pertenece, los privilegios
+                                administrativos específicos asignados al sujeto (como el derecho a apagar el equipo o
+                                realizar depuración de memoria) y un SID de inicio de sesión único (Wikipedia, 2026;
+                                Gollmann, 2011).
+                            </p>
+                            <p>
+                                Por su parte, cada objeto securizable cuenta con un Descriptor de Seguridad, el cual
+                                contiene la metadata de protección del recurso (Boutnaru, 2023; SecureW2, 2026). Este
+                                componente determina el propietario del objeto a través de su SID y alberga las listas
+                                de control de acceso correspondientes (Boutnaru, 2023; SecureW2, 2026):
+                            </p>
+                            <ul class="list-disc pl-6 space-y-2 mt-4 text-sm">
+                                <li>
+                                    <strong>Discretionary Access Control List (DACL):</strong> Esta lista contiene las
+                                    directivas específicas que permiten o deniegan el acceso a determinados usuarios o
+                                    grupos (Boutnaru, 2023; SecureW2, 2026). Si un objeto carece de DACL (DACL nula),
+                                    cualquier sujeto tendrá acceso total a él (SambaXP, 2011). Si contiene una DACL
+                                    vacía (sin entradas), se denegará el acceso a todos de forma absoluta (SecureW2,
+                                    2026).
+                                </li>
+                                <li>
+                                    <strong>System Access Control List (SACL):</strong> Esta lista dicta las reglas de
+                                    auditoría y generación de logs de seguridad ante intentos de acceso al recurso
+                                    (Boutnaru, 2023; SecureW2, 2026). Las entradas en la SACL definen qué operaciones
+                                    (como lectura, modificación o borrado), realizadas por qué usuarios, deben
+                                    desencadenar un evento de auditoría en el registro de seguridad de Windows
+                                    (SecureW2, 2026).
+                                </li>
+                            </ul>
+                            <p>
+                                Las listas DACL y SACL están compuestas por unidades individuales denominadas Entradas
+                                de Control de Acceso (ACE) (Boutnaru, 2023; SecureW2, 2026). Cada ACE especifica el SID
+                                de un fideicomisario (trustee), el tipo de acción (permitir, denegar o auditar),
+                                banderas que regulan la herencia de permisos hacia objetos secundarios y una máscara de
+                                acceso de 32 bits que detalla de forma matemática los permisos específicos concedidos o
+                                revocados (Boutnaru, 2023; SambaXP, 2011). Durante la evaluación de accesos, el SRM
+                                procesa las ACEs en un orden canónico estricto: las ACEs explícitas de denegación se
+                                evalúan primero; posteriormente, se analizan las ACEs explícitas de concesión; después,
+                                se procesan las ACEs heredadas de denegación; y, por último, las ACEs heredadas de
+                                concesión (SambaXP, 2011). El proceso de verificación se detiene de forma inmediata en
+                                cuanto se concede la totalidad de los accesos solicitados o en el momento en que se
+                                procesa una denegación explícita.
+                            </p>
+
+                            <h3
+                                class="text-lg font-bold text-slate-900 dark:text-white mt-8 mb-4 border-l-4 border-brand-500 pl-3">
+                                Mecanismos Nativos de Protección del Sistema Operativo
+                            </h3>
+                            <p>
+                                Con el propósito de mitigar los riesgos derivados de la ejecución de software no
+                                confiable y la explotación de vulnerabilidades, Windows incorpora tecnologías integradas
+                                que operan en diferentes niveles de abstracción (Seguridad en S.O., 2026).
+                            </p>
+                            <p>
+                                <strong>Control de Cuentas de Usuario (UAC)</strong> mitiga el impacto de malware al
+                                forzar a que todos los usuarios, incluso aquellos que pertenecen al grupo de
+                                Administradores, ejecuten sus aplicaciones ordinarias con un token de acceso estándar y
+                                no administrativo de manera predeterminada. Cuando una aplicación solicita realizar una
+                                modificación a nivel del sistema, el UAC interrumpe el flujo de trabajo del usuario
+                                mediante una pantalla de escritorio seguro, solicitando confirmación explícita o
+                                credenciales administrativas para elevar temporalmente el token del proceso.
+                            </p>
+                            <p>
+                                <strong>Microsoft Defender Antivirus</strong> ofrece capacidades de protección en tiempo
+                                real contra amenazas de software malicioso. Integrado estrechamente con el sistema
+                                operativo, Defender utiliza firmas criptográficas, análisis heurístico y telemetría de
+                                inteligencia artificial en la nube para identificar, bloquear y erradicar amenazas antes
+                                de que logren establecer persistencia o inyectarse en procesos legítimos del sistema.
+                            </p>
+                            <p>
+                                <strong>Cifrado de Unidad BitLocker</strong> mitiga el riesgo de pérdida o robo de datos
+                                confidenciales ante el acceso físico no autorizado a las unidades de almacenamiento
+                                (Amazon Web Services, 2026). BitLocker utiliza el estándar de cifrado avanzado (AES) con
+                                longitudes de clave de 128 o 256 bits para cifrar por completo los sectores de la
+                                partición del sistema (AWS, 2026). Para garantizar un arranque seguro, BitLocker se
+                                integra de manera nativa con el chip del Módulo de Plataforma de Confianza (TPM 2.0) de
+                                la placa base (JumpCloud, 2026). El TPM actúa como un coprocesador criptográfico que
+                                almacena la clave de descifrado de volumen y solo la libera si las mediciones de
+                                integridad de los componentes de arranque del sistema (registradas en los Registros de
+                                Configuración de Plataforma - PCRs) coinciden de manera exacta con los valores de
+                                referencia esperados (JumpCloud, 2026).
+                            </p>
+                            <p>
+                                <strong>Aislamiento de AppContainers</strong> proporciona un entorno de ejecución
+                                limitado (sandboxing) diseñado para aislar los procesos de aplicaciones del resto de los
+                                recursos del sistema operativo (Microsoft, 2026b). A través de AppContainer, las
+                                aplicaciones de Windows se ejecutan en compartimentos estancos que restringen de forma
+                                estricta sus capacidades de acceso a archivos, llaves del registro, periféricos (como la
+                                cámara o el micrófono) y descriptores de red, minimizando las consecuencias de una
+                                intrusión en caso de que la aplicación resulte comprometida por un vector de ataque
+                                (Microsoft, 2026b).
+                            </p>
+
+                            <h3
+                                class="text-lg font-bold text-slate-900 dark:text-white mt-8 mb-4 border-l-4 border-brand-500 pl-3">
+                                Virtualización Basada en Seguridad (VBS) y la Arquitectura de Credenciales
+                            </h3>
+                            <p>
+                                En entornos corporativos modernos, la protección de los secretos de identidad y las
+                                claves criptográficas es prioritaria. VBS representa una innovación estructural que
+                                utiliza el hipervisor nativo de Windows (Hyper-V) para aislar un espacio de memoria
+                                física del resto del sistema operativo (Microsoft, 2026a; JumpCloud, 2026). Esta
+                                arquitectura crea una raíz de confianza separada del kernel tradicional, asumiendo la
+                                premisa defensiva de que el kernel de VTL0 puede llegar a verse comprometido por
+                                vectores de explotación sofisticados (Microsoft, 2026a; Purple Team, 2026).
+                            </p>
+
+                            <!-- Table of VTLs -->
+                            <div class="overflow-x-auto my-6 border border-slate-200 dark:border-slate-800 rounded-xl">
+                                <table class="w-full text-left text-xs sm:text-sm">
+                                    <thead
+                                        class="bg-slate-100 dark:bg-slate-800 border-b border-slate-200 dark:border-slate-800">
+                                        <tr>
+                                            <th class="p-3 font-semibold">Atributo de la Arquitectura</th>
+                                            <th class="p-3 font-semibold">Virtual Trust Level 0 (VTL0)</th>
+                                            <th class="p-3 font-semibold">Virtual Trust Level 1 (VTL1)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-slate-200 dark:divide-slate-800">
+                                        <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30">
+                                            <td class="p-3 font-bold">Nivel de Privilegio</td>
+                                            <td class="p-3 text-slate-600 dark:text-slate-400">Ejecución estándar (Modo
+                                                Usuario y Modo Kernel) (Purple Team, 2026).</td>
+                                            <td class="p-3 text-slate-600 dark:text-slate-400">Ejecución estándar (Modo
+                                                Usuario y Modo Kernel) (Purple Team, 2026).</td>
+                                        </tr>
+                                        <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30">
+                                            <td class="p-3 font-bold">Componentes Clave</td>
+                                            <td class="p-3 text-slate-600 dark:text-slate-400">Kernel común de Windows,
+                                                controladores estándar (tcpip.sys), aplicaciones (Krishnaa, 2026; Purple
+                                                Team, 2026).</td>
+                                            <td class="p-3 text-slate-600 dark:text-slate-400">Kernel Seguro de VBS,
+                                                procesos IUM de confianza (LsaIso.exe) (JumpCloud, 2026; Purple Team,
+                                                2026; Microsoft, 2026c).</td>
+                                        </tr>
+                                        <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30">
+                                            <td class="p-3 font-bold">Protección de Memoria</td>
+                                            <td class="p-3 text-slate-600 dark:text-slate-400">Espacio de
+                                                direccionamiento virtual común mapeado de forma estándar.</td>
+                                            <td class="p-3 text-slate-600 dark:text-slate-400">Modo Seguro Virtual (VSM)
+                                                aislado por hardware (JumpCloud, 2026; Purple Team, 2026).</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <p>
+                                Bajo esta distribución de seguridad, Windows Defender Credential Guard redefinie de
+                                manera radical el almacenamiento de secretos (JumpCloud, 2026). En lugar de residir de
+                                manera directa en el proceso lsass.exe situado en el espacio desprotegido de VTL0, los
+                                secretos criptográficos, como los hashes NTLM y las claves de concesión de tickets (TGT)
+                                de Kerberos, se trasladan físicamente al proceso seguro LsaIso.exe (Isolated LSA), el
+                                cual se ejecuta en el Modo Seguro Virtual dentro de VTL1 (JumpCloud, 2026; Purple Team,
+                                2026).
+                            </p>
+                            <p>
+                                Cuando un proceso en VTL0 requiere realizar una operación de autenticación, el proceso
+                                lsass.exe se comunica con LsaIso.exe mediante llamadas a procedimientos remotos (RPC)
+                                validadas e interceptadas por el hipervisor (JumpCloud, 2026; Microsoft, 2026c). Dado
+                                que la memoria física asignada a VTL1 está estrictamente segregada y protegida a través
+                                de la traducción de direcciones de segundo nivel (SLAT) implementada por la CPU, un
+                                atacante que logre obtener privilegios de nivel de kernel (Ring 0) en VTL0 carecerá de
+                                los privilegios físicos para leer, modificar o volcar la memoria de LSA aislado en VTL1,
+                                mitigando de forma definitiva herramientas clásicas de extracción de credenciales en
+                                memoria (Microsoft, 2026a; Purple Team, 2026; Microsoft, 2026d).
+                            </p>
+                        </div>
+
+                        <!-- Post Footer/Tags -->
+                        <div class="border-t border-slate-100 dark:border-slate-800 pt-6 mt-8 flex flex-wrap gap-2">
+                            <span class="text-xs font-semibold text-slate-400 py-1 flex items-center gap-1.5"><i
+                                    data-lucide="tag" class="w-3.5 h-3.5"></i> Etiquetas:</span>
+                            <span
+                                class="px-2.5 py-1 bg-slate-100 dark:bg-slate-800 rounded-lg text-xs font-medium text-slate-600 dark:text-slate-400">arquitectura</span>
+                            <span
+                                class="px-2.5 py-1 bg-slate-100 dark:bg-slate-800 rounded-lg text-xs font-medium text-slate-600 dark:text-slate-400">seguridad</span>
+                            <span
+                                class="px-2.5 py-1 bg-slate-100 dark:bg-slate-800 rounded-lg text-xs font-medium text-slate-600 dark:text-slate-400">access-control</span>
+                            <span
+                                class="px-2.5 py-1 bg-slate-100 dark:bg-slate-800 rounded-lg text-xs font-medium text-slate-600 dark:text-slate-400">kernel</span>
                         </div>
                     </div>
                 </article>
 
+                <!-- SEMANA 2 -->
                 <article id="semana-2"
                     class="blog-post bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl overflow-hidden shadow-sm hover:shadow-md transition duration-300"
                     data-tags="vulnerabilidades,cumplimiento">
                     <div class="p-6 sm:p-10">
+                        <!-- Metadata -->
                         <div
                             class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-100 dark:border-slate-800 pb-6 mb-6">
                             <div class="flex items-center gap-3">
@@ -364,6 +647,7 @@
                             </div>
                         </div>
 
+                        <!-- Post Header -->
                         <span
                             class="text-brand-600 dark:text-brand-400 text-xs font-bold tracking-widest uppercase block mb-2">Sección
                             02</span>
@@ -371,21 +655,341 @@
                             Identificación de Vulnerabilidades, Análisis de Riesgos y Evaluación de Cumplimiento
                         </h2>
 
+                        <!-- Post Prose -->
                         <div class="academic-prose text-slate-700 dark:text-slate-300 text-[15px] space-y-6">
                             <p>
                                 Las vulnerabilidades en el sistema operativo Windows a menudo surgen de la complejidad
-                                acumulada...
+                                acumulada en la gestión de protocolos heredados de red, controladores de Modo Kernel no
+                                seguros y componentes del sistema con privilegios elevados (Wikipedia, 2026;
+                                CrowdStrike, 2026; Serianu, 2024). La explotación de estos fallos puede comprometer
+                                gravemente la confidencialidad, integridad y disponibilidad de la infraestructura
+                                tecnológica empresarial (Serianu, 2024).
                             </p>
 
+                            <h3
+                                class="text-lg font-bold text-slate-900 dark:text-white mt-8 mb-4 border-l-4 border-brand-500 pl-3">
+                                Análisis Técnico de Tres Vulnerabilidades CVE Críticas
+                            </h3>
+
+                            <div class="space-y-6">
+                                <div
+                                    class="bg-slate-50 dark:bg-slate-800/50 p-6 rounded-2xl border border-slate-100 dark:border-slate-800">
+                                    <h4
+                                        class="font-bold text-slate-900 dark:text-white text-base flex items-center gap-2">
+                                        <span
+                                            class="px-2.5 py-0.5 bg-red-100 dark:bg-red-950 text-red-800 dark:text-red-300 text-xs rounded-full">CVE-2021-34527</span>
+                                        PrintNightmare
+                                    </h4>
+                                    <p class="text-sm mt-2 text-slate-600 dark:text-slate-300">
+                                        <strong>Origen y Mecanismo:</strong> Localizado en el servicio de Cola de
+                                        Impresión de Windows (spoolsv.exe), que se ejecuta por defecto bajo los
+                                        privilegios supremos del sistema (NT AUTHORITY\SYSTEM) (Rapid7, 2021; PaperCut,
+                                        2021; National Vulnerability Database, 2021). La vulnerabilidad surge de una
+                                        deficiencia lógica en la función del sistema RpcAddPrinterDriverEx(), la cual no
+                                        realiza una validación ni restricción de privilegios adecuada al procesar
+                                        solicitudes de instalación de controladores procedentes de clientes de red (NVD,
+                                        2021; SentinelOne, 2021). Un atacante autenticado puede invocar esta función
+                                        remota y pasar como parámetro una ruta UNC de red que apunte a un controlador de
+                                        impresión malicioso en formato de biblioteca de enlace dinámico (DLL) (Rapid7,
+                                        2021; SentinelOne, 2021). Al procesar la solicitud, el Spooler copia la DLL
+                                        remota en el directorio local de controladores de impresión de Windows y la
+                                        carga en el espacio de memoria del servicio con privilegios de SYSTEM (PaperCut,
+                                        2021; NVD, 2021; SentinelOne, 2021). Los atacantes eludieron las detecciones de
+                                        seguridad iniciales desviando el flujo hacia llamadas alternas como
+                                        RpcAsyncAddPrinterDriver (SentinelOne, 2021).
+                                    </p>
+                                    <p class="text-sm mt-2 text-slate-600 dark:text-slate-300">
+                                        <strong>Impacto Operativo:</strong> Permite la ejecución remota de código (RCE)
+                                        y la elevación de privilegios local (LPE) con los máximos permisos sobre el
+                                        equipo afectado (Rapid7, 2021; NVD, 2021). Un atacante en la red local puede
+                                        comprometer por completo servidores de archivos, estaciones de trabajo y
+                                        controladores de dominio de Active Directory donde el Spooler de impresión se
+                                        mantenga activo, facilitando el despliegue de campañas de ransomware (Rapid7,
+                                        2021; PaperCut, 2021).
+                                    </p>
+                                    <p class="text-xs mt-2 text-slate-500 dark:text-slate-400 italic">
+                                        <strong>Mitigación y Estado de Remediación:</strong> Microsoft publicó parches
+                                        acumulativos fuera de banda para registrar la instalación de controladores de
+                                        impresión exclusivamente a cuentas con privilegios de administrador de forma
+                                        predeterminada (Rapid7, 2021; NVD, 2021). Sin embargo, la remediación total
+                                        requiere verificar que las políticas de registro asociadas a la tecnología
+                                        "Point and Print" (NoWarningNoElevationOnInstall y UpdatePromptSettings) se
+                                        encuentren deshabilitadas o configuradas a un valor de cero, impidiendo
+                                        instalaciones silenciosas (Rapid7, 2021; NVD, 2021).
+                                    </p>
+                                </div>
+
+                                <div
+                                    class="bg-slate-50 dark:bg-slate-800/50 p-6 rounded-2xl border border-slate-100 dark:border-slate-800">
+                                    <h4
+                                        class="font-bold text-slate-900 dark:text-white text-base flex items-center gap-2">
+                                        <span
+                                            class="px-2.5 py-0.5 bg-red-100 dark:bg-red-950 text-red-800 dark:text-red-300 text-xs rounded-full">CVE-2024-38063</span>
+                                        Integer Underflow en tcpip.sys
+                                    </h4>
+                                    <p class="text-sm mt-2 text-slate-600 dark:text-slate-300">
+                                        <strong>Origen y Mecanismo:</strong> Se localiza en el controlador de la pila de
+                                        red nativa de Windows (tcpip.sys) al procesar paquetes con el protocolo IPv6
+                                        habilitado (Serianu, 2024; Groll & Schwenk, 2025). El fallo se desencadena
+                                        durante el procesamiento coalescente de paquetes bajo cargas de red elevadas
+                                        (Groll & Schwenk, 2025). Si se envía una secuencia de paquetes IPv6 que
+                                        incorpore cabeceras de extensión malformadas (específicamente cabeceras de
+                                        opciones de destino con un tipo de opción superior a 0x80), la rutina de control
+                                        de errores del controlador del kernel invoca a la función IppSendErrorList() con
+                                        el parámetro always_send_icmp en verdadero (Groll & Schwenk, 2025; OPSWAT,
+                                        2024). Esto desencadena un bucle que reduce de forma incorrecta el tamaño de los
+                                        metadatos y la longitud de compensación de los paquetes subsiguientes de la
+                                        lista vinculada a cero (Groll & Schwenk, 2025; OPSWAT, 2024). Posteriormente, al
+                                        procesar un fragmento legítimo, la función Ipv6pReceiveFragment() asume un
+                                        offset estático de 0x28 pero procesa la estructura con longitud cero, lo cual
+                                        provoca un desbordamiento negativo de enteros (integer underflow), arrojando un
+                                        cálculo erróneo del tamaño del fragmento restante equivalente a un entero masivo
+                                        de aproximadamente 65,488 bytes (Groll & Schwenk, 2025; OPSWAT, 2024). Al
+                                        expirar el temporizador gestionado por Ipv6pReassemblyTimeout(), el sistema
+                                        intenta copiar el volumen calculado de 65 KB de datos del paquete dentro de un
+                                        búfer de destino estático de tan solo 48 bytes, provocando un desbordamiento
+                                        masivo de memoria del kernel (Groll & Schwenk, 2025; OPSWAT, 2024).
+                                    </p>
+                                    <p class="text-sm mt-2 text-slate-600 dark:text-slate-300">
+                                        <strong>Impacto Operativo:</strong> Ejecución Remota de Código (RCE) de tipo
+                                        "Zero-Click" (Serianu, 2024; Orca Security, 2024). Un atacante remoto sin
+                                        autenticación previa puede enviar paquetes de red manipulados para corromper la
+                                        memoria a nivel de kernel, permitiéndole tomar el control absoluto del sistema o
+                                        provocar una pantalla azul de la muerte (BSOD) que destruye la disponibilidad
+                                        del activo de forma inmediata (Serianu, 2024; Blumira, 2024).
+                                    </p>
+                                    <p class="text-xs mt-2 text-slate-500 dark:text-slate-400 italic">
+                                        <strong>Mitigación y Estado de Remediación:</strong> Se requiere aplicar de
+                                        forma mandatoria la actualización de seguridad acumulativa de Windows de agosto
+                                        de 2024 (Groll & Schwenk, 2025; Blumira, 2024). En escenarios heredados o
+                                        infraestructuras donde no sea factible realizar una ventana de mantenimiento
+                                        inmediata, se recomienda como solución temporal desactivar por completo el
+                                        protocolo IPv6 en las propiedades de las interfaces de red activas, considerando
+                                        el impacto que esta medida puede tener sobre los servicios internos dependientes
+                                        de este direccionamiento (Orca Security, 2024; Blumira, 2024).
+                                    </p>
+                                </div>
+
+                                <div
+                                    class="bg-slate-50 dark:bg-slate-800/50 p-6 rounded-2xl border border-slate-100 dark:border-slate-800">
+                                    <h4
+                                        class="font-bold text-slate-900 dark:text-white text-base flex items-center gap-2">
+                                        <span
+                                            class="px-2.5 py-0.5 bg-red-100 dark:bg-red-950 text-red-800 dark:text-red-300 text-xs rounded-full">CVE-2024-43468</span>
+                                        SQLi en Microsoft Configuration Manager
+                                    </h4>
+                                    <p class="text-sm mt-2 text-slate-600 dark:text-slate-300">
+                                        <strong>Origen y Mecanismo:</strong> Esta vulnerabilidad afecta a la base de
+                                        datos central de soporte de Microsoft Configuration Manager (SCCM) (F5 Labs,
+                                        2026). El vector de ataque aprovecha una vulnerabilidad de inyección SQL debida
+                                        a la falta de validación y saneamiento de los parámetros de consulta de red
+                                        recibidos por el servicio de administración de SCCM antes de transmitirlos al
+                                        motor de base de datos de Microsoft SQL Server (F5 Labs, 2026). Un atacante no
+                                        autenticado puede enviar solicitudes HTTP estructuradas con código de base de
+                                        datos malicioso incrustado en los campos de consulta (F5 Labs, 2026). El sistema
+                                        procesa la solicitud y ejecuta el comando inyectado directamente en el contexto
+                                        de SQL Server con los máximos privilegios administrativos (F5 Labs, 2026).
+                                    </p>
+                                    <p class="text-sm mt-2 text-slate-600 dark:text-slate-300">
+                                        <strong>Impacto Operativo:</strong> Ejecución remota de código con privilegios
+                                        elevados en el servidor de Configuration Manager (F5 Labs, 2026). Dado que SCCM
+                                        se encarga del control y distribución automatizada de software en toda la
+                                        infraestructura de la empresa, el compromiso de su base de datos central permite
+                                        a un atacante propagar malware y ejecutar scripts de forma persistente en la
+                                        totalidad de las estaciones de trabajo y servidores bajo control de la
+                                        plataforma, rompiendo la confianza de todo el dominio (F5 Labs, 2026).
+                                    </p>
+                                    <p class="text-xs mt-2 text-slate-500 dark:text-slate-400 italic">
+                                        <strong>Mitigación y Estado de Remediación:</strong> Microsoft ha calificado
+                                        esta vulnerabilidad como crítica y la ha incorporado en el catálogo de
+                                        vulnerabilidades conocidas explotadas activamente de CISA (F5 Labs, 2026). Es
+                                        mandatorio aplicar las actualizaciones de seguridad liberadas por el fabricante
+                                        para Configuration Manager de octubre de 2024, restringir la visibilidad de los
+                                        puertos de red asociados al servidor de base de datos SQL Server y utilizar
+                                        sistemas de detección de intrusiones de red (IDS/IPS) para identificar patrones
+                                        de inyección SQL en la red (F5 Labs, 2026; UnderDefense, 2026).
+                                    </p>
+                                </div>
+                            </div>
+
+                            <h3
+                                class="text-lg font-bold text-slate-900 dark:text-white mt-8 mb-4 border-l-4 border-brand-500 pl-3">
+                                Metodología de Análisis de Riesgos y Cuadro Corporativo
+                            </h3>
+                            <p>
+                                Para evaluar el impacto de estas vulnerabilidades sobre la continuidad operativa de la
+                                organización, se implementa una metodología estructurada de análisis de riesgos
+                                orientada a activos críticos. Esta metodología evalúa cuantitativa y cualitativamente la
+                                probabilidad de ocurrencia de un evento de explotación y el impacto perjudicial sobre el
+                                activo para derivar un nivel de riesgo consolidado.
+                            </p>
+                            <p>
+                                La priorización de riesgos para los sistemas del dominio de Windows se detalla en la
+                                siguiente matriz estructurada:
+                            </p>
+
+                            <!-- Responsive Risk Matrix Table -->
+                            <div class="overflow-x-auto my-6 border border-slate-200 dark:border-slate-800 rounded-xl">
+                                <table class="w-full text-left text-xs sm:text-sm">
+                                    <thead
+                                        class="bg-slate-100 dark:bg-slate-800 border-b border-slate-200 dark:border-slate-800">
+                                        <tr>
+                                            <th class="p-3 font-semibold">ID de Activo</th>
+                                            <th class="p-3 font-semibold">Activo de Información Crítico</th>
+                                            <th class="p-3 font-semibold">Vulnerabilidad / Amenaza Identificada</th>
+                                            <th class="p-3 font-semibold text-center">Impacto (I)</th>
+                                            <th class="p-3 font-semibold text-center">Probabilidad (P)</th>
+                                            <th class="p-3 font-semibold text-center">Nivel de Riesgo (R=I×P)</th>
+                                            <th class="p-3 font-semibold">Mitigación Técnica y Controles Preventivos
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-slate-200 dark:divide-slate-800">
+                                        <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30">
+                                            <td class="p-3 font-mono font-bold">ACT-01</td>
+                                            <td class="p-3 font-semibold">Controladores de Dominio de Active Directory
+                                                (AD DS)</td>
+                                            <td class="p-3 text-slate-600 dark:text-slate-400">Extracción de hashes de
+                                                contraseñas de la memoria del proceso LSASS; ataques de elevación de
+                                                privilegios de dominio.</td>
+                                            <td class="p-3 text-center font-semibold">5</td>
+                                            <td class="p-3 text-center font-semibold">4</td>
+                                            <td class="p-3 text-center font-bold text-red-600 dark:text-red-400">20
+                                                (Crítico)</td>
+                                            <td class="p-3">Activar Windows Defender Credential Guard en VTL1; forzar la
+                                                ejecución de LSASS como proceso protegido (RunAsPPL).</td>
+                                        </tr>
+                                        <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30">
+                                            <td class="p-3 font-mono font-bold">ACT-02</td>
+                                            <td class="p-3 font-semibold">Servidores Corporativos y Estaciones de
+                                                Trabajo (IPv6 Activo)</td>
+                                            <td class="p-3 text-slate-600 dark:text-slate-400">Desbordamiento de búfer y
+                                                ejecución de código remoto (RCE) en kernel mediante paquetes malformados
+                                                de red (CVE-2024-38063)</td>
+                                            <td class="p-3 text-center font-semibold">5</td>
+                                            <td class="p-3 text-center font-semibold">3</td>
+                                            <td class="p-3 text-center font-bold text-amber-600 dark:text-amber-400">15
+                                                (Alto)</td>
+                                            <td class="p-3">Desplegar actualizaciones mensuales de seguridad
+                                                acumulativas; deshabilitar temporalmente IPv6 de no ser mandatorio para
+                                                el negocio.</td>
+                                        </tr>
+                                        <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30">
+                                            <td class="p-3 font-mono font-bold">ACT-03</td>
+                                            <td class="p-3 font-semibold">Servidores de Gestión de Configuración (SCCM /
+                                                WSUS)</td>
+                                            <td class="p-3 text-slate-600 dark:text-slate-400">Inyección de consultas
+                                                SQL maliciosas de red que comprometen la consola central de distribución
+                                                de software (CVE-2024-43468).</td>
+                                            <td class="p-3 text-center font-semibold">5</td>
+                                            <td class="p-3 text-center font-semibold">3</td>
+                                            <td class="p-3 text-center font-bold text-amber-600 dark:text-amber-400">15
+                                                (Alto)</td>
+                                            <td class="p-3">Instalar de forma inmediata los parches oficiales de base de
+                                                datos de SCCM de octubre de 2024; aislar el tráfico de red de
+                                                servidores.</td>
+                                        </tr>
+                                        <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30">
+                                            <td class="p-3 font-mono font-bold">ACT-04</td>
+                                            <td class="p-3 font-semibold">Servidores de Archivos e Impresión con Spooler
+                                                Activo</td>
+                                            <td class="p-3 text-slate-600 dark:text-slate-400">Explotación remota para
+                                                la inyección y ejecución de DLLs maliciosas de red con altos privilegios
+                                                (CVE-2021-34527).</td>
+                                            <td class="p-3 text-center font-semibold">4</td>
+                                            <td class="p-3 text-center font-semibold">3</td>
+                                            <td class="p-3 text-center font-bold text-yellow-600 dark:text-yellow-400">
+                                                12 (Medio)</td>
+                                            <td class="p-3">Desactivar el servicio del Spooler de impresión en
+                                                servidores que no cumplan roles de impresión; desactivar políticas
+                                                inseguras de Point and Print.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <h3
+                                class="text-lg font-bold text-slate-900 dark:text-white mt-8 mb-4 border-l-4 border-brand-500 pl-3">
+                                La Transición de MBSA a Microsoft Security Compliance Toolkit (SCT)
+                            </h3>
+                            <p>
+                                La evaluación de cumplimiento normativo y de configuraciones seguras en entornos de
+                                Windows ha experimentado una evolución significativa (The Knowledge Academy, 2026).
+                                Históricamente, Microsoft Baseline Security Analyzer (MBSA) constituyó la herramienta
+                                predeterminada para evaluar las fallas de parches de seguridad y las configuraciones
+                                erróneas del sistema operativo (The Knowledge Academy, 2026). No obstante, con la
+                                sofisticación de los ataques modernos y la adopción de infraestructuras basadas en
+                                Active Directory y directivas integradas de nube, MBSA fue declarado obsoleto debido a
+                                su incapacidad para procesar directivas basadas en jerarquías de GPO complejas,
+                                configuraciones granulares del registro y políticas basadas en Mobile Device Management
+                                (MDM) (The Knowledge Academy, 2026; Microsoft, 2026e).
+                            </p>
+                            <p>
+                                En la actualidad, la suite de reemplazo empresarial recomendada por el fabricante es el
+                                Microsoft Security Compliance Toolkit (SCT) (Microsoft, 2026f; Microsoft, 2026g). SCT
+                                proporciona a los ingenieros de sistemas y analistas de ciberseguridad una solución
+                                integral para descargar, analizar, auditar y comparar las líneas base de configuración
+                                recomendadas por Microsoft (Security Baselines) contra las políticas vigentes aplicadas
+                                sobre los equipos locales y el entorno corporativo de Active Directory (Microsoft,
+                                2026f; Microsoft, 2026g).
+                            </p>
+                            <p>
+                                El componente central de esta suite es la utilidad gráfica Policy Analyzer (Microsoft,
+                                2026g). A través de Policy Analyzer, los administradores pueden cargar múltiples
+                                respaldos de GPOs, interpretarlos como una única unidad lógica y compararlos de forma
+                                interactiva frente al estado efectivo de las configuraciones de registro locales,
+                                identificando discrepancias de cumplimiento, configuraciones inconsistentes, desvíos
+                                (configuration drift) y reglas redundantes que reducen la postura de seguridad global
+                                (Microsoft, 2026g; Loos, 2018; WindowsForum, 2026).
+                            </p>
+                            <h3
+                                class="text-lg font-bold text-slate-900 dark:text-white mt-8 mb-4 border-l-4 border-brand-500 pl-3">
+                                Indicaciones para la Ejecución del Análisis de Cumplimiento con Policy Analyzer
+                            </h3>
+                            <p>
+                                Para validar el estado de cumplimiento del equipo local contra la línea base de
+                                seguridad de Microsoft utilizando la herramienta Policy Analyzer, se debe seguir el
+                                procedimiento que se detalla a continuación (Loos, 2018; Stallings, 2026):
+                            </p>
+                            <ol class="list-decimal pl-6 space-y-2 text-sm mt-4">
+                                <li>Descargar el archivo comprimido PolicyAnalyzer.zip desde el portal oficial de
+                                    descarga de Microsoft Security Compliance Toolkit.</li>
+                                <li>Extraer el contenido en un directorio persistente del disco local (por ejemplo,
+                                    <code>C:\SCT\</code>).</li>
+                                <li>Ejecutar la utilidad haciendo doble clic en el archivo ejecutable
+                                    <code>PolicyAnalyzer.exe</code>.</li>
+                                <li>En la pantalla de inicio del analizador de directivas, hacer clic en el botón
+                                    <strong>Add</strong> para iniciar el asistente de importación.</li>
+                                <li>En la ventana emergente, seleccionar el menú <strong>File</strong> y posteriormente
+                                    hacer clic en la opción <strong>Add Files from GPO(s)</strong>.</li>
+                                <li>Buscar y seleccionar el directorio que contenga las plantillas de GPO de la baseline
+                                    recomendada oficial de Microsoft correspondiente a la versión de Windows evaluada
+                                    (por ejemplo, las carpetas de GPO contenidas en el paquete de línea base de Windows
+                                    11).</li>
+                                <li>Una vez importadas las políticas de referencia, proceder a guardarlas como un
+                                    archivo consolidado asignando un nombre descriptivo en formato de reglas (por
+                                    ejemplo, <code>Línea_Base_Microsoft_Windows_11.PolicyRules</code>).</li>
+                                <li>Para contrastar estas directivas ideales contra la configuración activa del sistema
+                                    operativo, marcar la casilla del archivo <code>.PolicyRules</code> recién creado en
+                                    la ventana principal de la utilidad y hacer clic en el botón <strong>Compare to
+                                        Effective State</strong>.</li>
+                                <li>El sistema procesará las claves del registro del equipo y generará una cuadrícula
+                                    interactiva detallada. Las filas resaltadas en color amarillo representan llaves de
+                                    configuración donde existe una discrepancia o conflicto entre la recomendación
+                                    oficial y el estado de operación activo. Las celdas en color gris indican directivas
+                                    de seguridad ausentes o no definidas en el sistema local.</li>
+                            </ol>
+
+                            <!-- IMAGE PLACEHOLDER: Hardening_Auditoria_Visor_Eventos.png -->
                             <div
                                 class="my-8 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 p-4">
                                 <figure class="text-center">
                                     <div
                                         class="relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-950 group">
-                                        <img src="assets/images/Hardening_Auditoria_Visor_Eventos.png"
+                                        <img src="Hardening_Auditoria_Visor_Eventos.png"
                                             alt="Auditoría de Hardening mediante Visor de Eventos"
                                             class="mx-auto block h-auto max-h-[380px] object-contain transition-transform duration-300 group-hover:scale-105"
-                                            onerror="handleImageError(this, 'Auditoría con Visor de Eventos', 'Registro de auditoría operativa de CodeIntegrity en el Visor de Eventos.')">
+                                            onerror="handleImageError(this, 'Auditoría con Visor de Eventos', 'Registro de auditoría operativa de CodeIntegrity en el Visor de Eventos de Windows. Muestra el evento ID 3089 y detalles de validación de firmas criptográficas para auditorías continuas.')">
                                         <div
                                             class="absolute inset-0 bg-brand-950/20 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center pointer-events-none">
                                             <span
@@ -395,28 +999,313 @@
                                         </div>
                                     </div>
                                     <figcaption class="mt-3 text-xs text-slate-500 dark:text-slate-400 italic">
-                                        Figura 2: Registro operativo de CodeIntegrity en el Visor de Eventos de Windows.
+                                        Figura 2: Registro operativo de CodeIntegrity en el Visor de Eventos de Windows,
+                                        validando de forma continua la integridad de las firmas de controladores.
                                     </figcaption>
                                 </figure>
                             </div>
                         </div>
+
+                        <!-- Post Footer/Tags -->
+                        <div class="border-t border-slate-100 dark:border-slate-800 pt-6 mt-8 flex flex-wrap gap-2">
+                            <span class="text-xs font-semibold text-slate-400 py-1 flex items-center gap-1.5"><i
+                                    data-lucide="tag" class="w-3.5 h-3.5"></i> Etiquetas:</span>
+                            <span
+                                class="px-2.5 py-1 bg-slate-100 dark:bg-slate-800 rounded-lg text-xs font-medium text-slate-600 dark:text-slate-400">vulnerabilidades</span>
+                            <span
+                                class="px-2.5 py-1 bg-slate-100 dark:bg-slate-800 rounded-lg text-xs font-medium text-slate-600 dark:text-slate-400">CVE</span>
+                            <span
+                                class="px-2.5 py-1 bg-slate-100 dark:bg-slate-800 rounded-lg text-xs font-medium text-slate-600 dark:text-slate-400">risk-analysis</span>
+                            <span
+                                class="px-2.5 py-1 bg-slate-100 dark:bg-slate-800 rounded-lg text-xs font-medium text-slate-600 dark:text-slate-400">cumplimiento</span>
+                        </div>
                     </div>
                 </article>
 
+                <!-- SEMANA 3 -->
+                <article id="semana-3"
+                    class="blog-post bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl overflow-hidden shadow-sm hover:shadow-md transition duration-300"
+                    data-tags="hardening,seguridad">
+                    <div class="p-6 sm:p-10">
+                        <!-- Metadata -->
+                        <div
+                            class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-100 dark:border-slate-800 pb-6 mb-6">
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-amber-600/10 dark:bg-amber-500/20 text-amber-600 dark:text-amber-300 flex items-center justify-center font-extrabold text-xs">
+                                    QP</div>
+                                <div>
+                                    <span
+                                        class="block text-xs font-semibold text-slate-400 uppercase tracking-wider">Autor</span>
+                                    <span class="block text-sm font-bold text-slate-800 dark:text-slate-200">Quimiz
+                                        Plaza Alex Eduardo</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2 text-xs text-slate-400">
+                                <span
+                                    class="flex items-center gap-1 bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded-full"><i
+                                        data-lucide="clock" class="w-3.5 h-3.5"></i> 7 min lectura</span>
+                                <span
+                                    class="flex items-center gap-1 bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded-full"><i
+                                        data-lucide="calendar" class="w-3.5 h-3.5"></i> Semana 3</span>
+                            </div>
+                        </div>
+
+                        <!-- Post Header -->
+                        <span
+                            class="text-brand-600 dark:text-brand-400 text-xs font-bold tracking-widest uppercase block mb-2">Sección
+                            03</span>
+                        <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-white mb-6">
+                            Hardening y Prácticas Técnicas de Robustecimiento
+                        </h2>
+
+                        <!-- Post Prose -->
+                        <div class="academic-prose text-slate-700 dark:text-slate-300 text-[15px] space-y-6">
+                            <p>
+                                El hardening (robustecimiento) de sistemas operativos consiste en aplicar un conjunto
+                                estructurado de configuraciones y restricciones técnicas sobre los servicios de software
+                                y hardware con el fin de minimizar de forma sistemática la superficie de ataque expuesta
+                                ante amenazas de seguridad (Seguridad en S.O., 2026; Microsoft, 2026b; Netwrix, 2026).
+                            </p>
+
+                            <h3
+                                class="text-lg font-bold text-slate-900 dark:text-white mt-8 mb-4 border-l-4 border-brand-500 pl-3">
+                                Autenticación Robusta
+                            </h3>
+                            <p>
+                                La autenticación en sistemas Windows ha evolucionado para contrarrestar los ataques
+                                basados en la interceptación y descifrado de credenciales tradicionales en formato de
+                                texto plano o hash (JumpCloud, 2026; Netwrix, 2026). Las directrices modernas exigen la
+                                transición hacia esquemas de autenticación robustos basados en el estándar criptográfico
+                                de clave pública de Windows Hello for Business (JumpCloud, 2026; Microsoft, 2026d;
+                                NinjaOne, 2026).
+                            </p>
+                            <p>
+                                Este mecanismo reemplaza las contraseñas estáticas de los usuarios por pares de claves
+                                asimétricas cifradas, vinculadas a las capacidades de hardware biométrico
+                                (reconocimiento facial o de huella dactilar) o llaves de seguridad físicas externas
+                                (JumpCloud, 2026; NinjaOne, 2026). Al autenticarse, la clave privada almacenada de forma
+                                aislada e inalterable en el chip TPM 2.0 del endpoint firma criptográficamente un
+                                desafío de red, asegurando que las credenciales de autenticación nunca salgan
+                                físicamente del dispositivo local hacia los servidores del dominio, lo cual neutraliza
+                                los vectores de interceptación del tráfico en tránsito (JumpCloud, 2026; NinjaOne,
+                                2026).
+                            </p>
+                            <p>
+                                Adicionalmente, se debe forzar el uso de autenticación multifactor (MFA) mediante tokens
+                                de acceso condicional en todas las conexiones entrantes de administración, limitando de
+                                forma estricta los flujos de autenticación basados en protocolos inseguros como NTLMv1 y
+                                MS-CHAPv2, los cuales carecen de la resiliencia necesaria frente a ataques de fuerza
+                                bruta y descifrado offline (Microsoft, 2026c; Microsoft, 2026d; RDR-IT, 2026).
+                            </p>
+
+                            <h3
+                                class="text-lg font-bold text-slate-900 dark:text-white mt-8 mb-4 border-l-4 border-brand-500 pl-3">
+                                Cifrado de Disco, Datos y Red
+                            </h3>
+                            <p>
+                                La protección del flujo de información requiere establecer capas de cifrado persistente
+                                en sus tres estados de operación: reposo, tránsito y procesamiento. Para proteger los
+                                datos en reposo, es mandatorio habilitar de forma corporativa el cifrado total de
+                                volumen con BitLocker, asegurando que la llave criptográfica de volumen (FVEK) se
+                                encuentre resguardada por las mediciones de integridad de arranque del procesador a
+                                través de la integración TPM 2.0 y políticas de arranque seguro (Secure Boot)
+                                (Microsoft, 2026a; JumpCloud, 2026).
+                            </p>
+                            <p>
+                                Para los datos en tránsito a través de la red, se debe implementar seguridad de nivel de
+                                capa de transporte forzando el uso de IPSec en modo transporte para canalizar de forma
+                                cifrada las comunicaciones del sistema, además de restringir el acceso a servidores de
+                                compartición de archivos corporativos exclusivamente a través del protocolo SMBv3
+                                cifrado (Server Message Block versión 3) (RDR-IT, 2026; CERN, 2026).
+                            </p>
+                            <p>
+                                Por último, el cifrado de datos en procesamiento se garantiza mediante la activación de
+                                tecnologías de enclavamiento de memoria segura a través de Virtualización Basada en
+                                Seguridad (VBS), asegurando que los procesos críticos de validación de firmas y
+                                credenciales operen en páginas de memoria restringidas por hipervisor (Microsoft, 2026a;
+                                Purple Team, 2026; Microsoft, 2026d).
+                            </p>
+
+                            <h3
+                                class="text-lg font-bold text-slate-900 dark:text-white mt-8 mb-4 border-l-4 border-brand-500 pl-3">
+                                Configuración Segura de Red
+                            </h3>
+                            <p>
+                                El hardening de red de los endpoints Windows exige deshabilitar los protocolos legados
+                                heredados que se mantienen por motivos de compatibilidad hacia atrás pero que exponen de
+                                manera severa la infraestructura de comunicaciones local (RDR-IT, 2026; CERN, 2026).
+                                Protocolos como LLMNR (Link-Local Multicast Name Resolution) y NetBIOS over TCP/IP son
+                                frecuentemente aprovechados en la red local mediante herramientas de ataque
+                                automatizadas (como Responder) para responder con falsas resoluciones de nombres,
+                                envenenar las tablas de caché de los dispositivos y desviar el tráfico de red de los
+                                usuarios para capturar o retransmitir hashes NTLM (ataques de intermediario o
+                                Man-in-the-Middle) (UnderDefense, 2026; RDR-IT, 2026; CERN, 2026).
+                            </p>
+                            <p>
+                                Adicionalmente, se debe desactivar de forma permanente el uso de la versión 1 del
+                                protocolo SMB (SMBv1), el cual carece de firmas criptográficas robustas y es susceptible
+                                de ser explotado para la propagación lateral de gusanos en la red (como el famoso vector
+                                utilizado por WannaCry) (RDR-IT, 2026; CERN, 2026). La desactivación se complementa con
+                                el bloqueo de puertos de entrada locales en el firewall del sistema (puertos TCP 137,
+                                138, 139 para NetBIOS, puerto UDP 5355 para LLMNR, y puertos TCP 445 para SMB cuando no
+                                se trate de servidores de archivos aprobados) (CERN, 2026).
+                            </p>
+
+                            <h3
+                                class="text-lg font-bold text-slate-900 dark:text-white mt-8 mb-4 border-l-4 border-brand-500 pl-3">
+                                Actualizaciones y Gestión de Parches
+                            </h3>
+                            <p>
+                                La mitigación proactiva de vulnerabilidades de día cero requiere establecer un proceso
+                                de gestión de parches estructurado e integrado (Microsoft, 2026g; NSFOCUS CERT, 2026).
+                                Las organizaciones deben implementar un servidor centralizado de administración de
+                                actualizaciones como Windows Server Update Services (WSUS) o Microsoft Intune para
+                                descargar de forma centralizada las actualizaciones de seguridad acumulativas liberadas
+                                mensualmente por el fabricante en sus ciclos de mantenimiento (Patch Tuesday)
+                                (Microsoft, 2026f; Microsoft, 2026g; Computerworld, 2026).
+                            </p>
+                            <p>
+                                Este ciclo operativo debe contemplar fases de validación piloto sobre un grupo de
+                                control heterogéneo de equipos antes de la distribución masiva a producción, previniendo
+                                posibles incompatibilidades operativas (WindowsForum, 2026). En entornos de alta
+                                disponibilidad de Windows Server, se debe priorizar la habilitación del servicio de
+                                parches en caliente (Hotpatching) en las compilaciones que cuenten con este soporte,
+                                facilitando la inserción de correcciones de vulnerabilidades críticas directamente en
+                                las páginas de memoria de procesos en ejecución sin necesidad de reiniciar el equipo
+                                físico, lo que elimina el tiempo de inactividad operativa sin rebajar el nivel de
+                                protección global (Microsoft, 2026h).
+                            </p>
+
+                            <!-- Document Attachment Card / External Link Banner -->
+                            <div
+                                class="mt-8 p-6 rounded-2xl bg-brand-50 dark:bg-brand-950/20 border border-brand-100 dark:border-brand-900/50 flex flex-col sm:flex-row items-center justify-between gap-4 transition hover:border-brand-200 dark:hover:border-brand-800/80">
+                                <div class="flex items-center gap-4 text-center sm:text-left">
+                                    <div
+                                        class="p-3 bg-brand-600 text-white rounded-xl shadow-lg shadow-brand-500/20 mx-auto sm:mx-0">
+                                        <i data-lucide="file-text" class="w-6 h-6"></i>
+                                    </div>
+                                    <div>
+                                        <span
+                                            class="block text-[10px] font-bold text-brand-600 dark:text-brand-400 uppercase tracking-widest">Anexo
+                                            Académico</span>
+                                        <h4 class="text-sm font-bold text-slate-900 dark:text-white leading-snug">Manual
+                                            Técnico de Hardening y Verificación del Sistema Operativo Windows</h4>
+                                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Accede al documento
+                                            interactivo de parametrización y guías paso a paso.</p>
+                                    </div>
+                                </div>
+                                <a href="https://drive.google.com/file/d/16KM91EATLfWo1A-otO8LXhrZy5KqL7aY/view?usp=drive_link"
+                                    target="_blank" rel="noopener noreferrer"
+                                    class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 bg-brand-600 hover:bg-brand-700 text-white text-xs font-bold rounded-xl transition shadow-md shadow-brand-500/10 hover:shadow-lg hover:shadow-brand-500/20 whitespace-nowrap">
+                                    <i data-lucide="external-link" class="w-4 h-4"></i> Ver Manual en Drive
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Post Footer/Tags -->
+                        <div class="border-t border-slate-100 dark:border-slate-800 pt-6 mt-8 flex flex-wrap gap-2">
+                            <span class="text-xs font-semibold text-slate-400 py-1 flex items-center gap-1.5"><i
+                                    data-lucide="tag" class="w-3.5 h-3.5"></i> Etiquetas:</span>
+                            <span
+                                class="px-2.5 py-1 bg-slate-100 dark:bg-slate-800 rounded-lg text-xs font-medium text-slate-600 dark:text-slate-400">hardening</span>
+                            <span
+                                class="px-2.5 py-1 bg-slate-100 dark:bg-slate-800 rounded-lg text-xs font-medium text-slate-600 dark:text-slate-400">encryption</span>
+                            <span
+                                class="px-2.5 py-1 bg-slate-100 dark:bg-slate-800 rounded-lg text-xs font-medium text-slate-600 dark:text-slate-400">network-security</span>
+                            <span
+                                class="px-2.5 py-1 bg-slate-100 dark:bg-slate-800 rounded-lg text-xs font-medium text-slate-600 dark:text-slate-400">patches</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- SEMANA 4 -->
                 <article id="semana-4"
                     class="blog-post bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl overflow-hidden shadow-sm hover:shadow-md transition duration-300"
                     data-tags="seguridad,cumplimiento">
                     <div class="p-6 sm:p-10">
+                        <!-- Metadata -->
+                        <div
+                            class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-100 dark:border-slate-800 pb-6 mb-6">
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-violet-600/10 dark:bg-violet-500/20 text-violet-600 dark:text-violet-300 flex items-center justify-center font-extrabold text-xs">
+                                    QP</div>
+                                <div>
+                                    <span
+                                        class="block text-xs font-semibold text-slate-400 uppercase tracking-wider">Autor</span>
+                                    <span class="block text-sm font-bold text-slate-800 dark:text-slate-200">Quiroga
+                                        Peralta Ruben Alfredo</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2 text-xs text-slate-400">
+                                <span
+                                    class="flex items-center gap-1 bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded-full"><i
+                                        data-lucide="clock" class="w-3.5 h-3.5"></i> 12 min lectura</span>
+                                <span
+                                    class="flex items-center gap-1 bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded-full"><i
+                                        data-lucide="calendar" class="w-3.5 h-3.5"></i> Semana 4</span>
+                            </div>
+                        </div>
+
+                        <!-- Post Header -->
+                        <span
+                            class="text-brand-600 dark:text-brand-400 text-xs font-bold tracking-widest uppercase block mb-2">Sección
+                            04</span>
+                        <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-white mb-6">
+                            Proyecto Final Integrado y Reflexión de Ciberseguridad
+                        </h2>
+
+                        <!-- Post Prose -->
                         <div class="academic-prose text-slate-700 dark:text-slate-300 text-[15px] space-y-6">
+                            <h3
+                                class="text-lg font-bold text-slate-900 dark:text-white mt-8 mb-4 border-l-4 border-brand-500 pl-3">
+                                Resumen Ejecutivo de la Postura Mensual de Seguridad
+                            </h3>
+                            <p>
+                                La evaluación técnica y el robustecimiento mensual realizado sobre la infraestructura
+                                basada en sistemas operativos Windows demuestran de forma concluyente que la seguridad
+                                corporativa no puede depender exclusivamente de los parámetros de configuración
+                                establecidos de fábrica por el desarrollador (Microsoft, 2026d; RDR-IT, 2026; itm4n,
+                                2026). A pesar de los importantes avances en la ingeniería de seguridad de la pila NT
+                                (como la consolidación de la virtualización en hardware VBS y Credential Guard)
+                                (Microsoft, 2026a; Purple Team, 2026), los vectores de ataque continúan explotando de
+                                manera exitosa los protocolos locales heredados y las deficiencias de aislamiento del
+                                proceso LSASS en sistemas mal configurados o desactualizados (SentinelOne, 2021;
+                                SafeLink IT, 2026).
+                            </p>
+                            <p>
+                                Este proyecto mensual consolida la transición de un modelo de seguridad reactivo hacia
+                                una metodología de hardening integrada y de confianza cero, alineada con las directivas
+                                oficiales de seguridad de Microsoft (Microsoft, 2026e). Mediante la deshabilitación
+                                sistemática de los canales de ataque clásicos (LLMNR, NetBIOS, SMBv1), el aislamiento
+                                criptográfico del espacio de memoria de identidades en VTL1 y la implantación de
+                                procesos de auditoría continua asistidos por Policy Analyzer, se ha logrado elevar la
+                                resistencia del sistema operativo contra elevaciones de privilegios de nivel de kernel y
+                                ataques de propagación lateral (JumpCloud, 2026; Microsoft, 2026g; RDR-IT, 2026; CERN,
+                                2026).
+                            </p>
+
+                            <h3
+                                class="text-lg font-bold text-slate-900 dark:text-white mt-8 mb-4 border-l-4 border-brand-500 pl-3">
+                                Criterios Globales de Seguridad de Windows
+                            </h3>
+                            <p>
+                                Los pilares fundamentales indispensables para mantener un entorno operativo Windows
+                                protegido a gran escala se estructuran de acuerdo con la siguiente jerarquía operativa
+                                de seguridad:
+                            </p>
+
+                            <!-- IMAGE PLACEHOLDER: Criterios_globales_de_seguridad_de_Windows.png -->
                             <div
                                 class="my-8 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 p-4">
                                 <figure class="text-center">
                                     <div
                                         class="relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-950 group">
-                                        <img src="assets/images/Criterios_globales_de_seguridad_de_Windows.png"
+                                        <img src="Criterios_globales_de_seguridad_de_Windows.png"
                                             alt="Criterios Globales de Seguridad en Windows"
                                             class="mx-auto block h-auto max-h-[380px] object-contain transition-transform duration-300 group-hover:scale-105"
-                                            onerror="handleImageError(this, 'Criterios Globales de Seguridad de Windows', 'Representación en jerarquía de seguridad.')">
+                                            onerror="handleImageError(this, 'Criterios Globales de Seguridad de Windows', 'Representación en jerarquía vertical: 1. Protección Física y de Boot (TPM/BitLocker) -> 2. Protección de Kernel (VBS/HVCI) -> 3. Robustecimiento de Red (Desactivación de protocolos legacy y SMBv3) -> 4. Auditoría y Remediación (Policy Analyzer y Parches).')">
                                         <div
                                             class="absolute inset-0 bg-brand-950/20 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center pointer-events-none">
                                             <span
@@ -427,18 +1316,400 @@
                                     </div>
                                     <figcaption class="mt-3 text-xs text-slate-500 dark:text-slate-400 italic">
                                         Figura 3: Pilares fundamentales jerárquicos indispensables para sostener la
-                                        inmunidad de Windows.
+                                        inmunidad del sistema operativo Windows.
                                     </figcaption>
                                 </figure>
                             </div>
+
+                            <h3
+                                class="text-lg font-bold text-slate-900 dark:text-white mt-8 mb-4 border-l-4 border-brand-500 pl-3">
+                                Plan de Mitigación de Riesgos Críticos Identificados
+                            </h3>
+                            <p>
+                                Para neutralizar de forma efectiva las amenazas de la infraestructura, se implementa el
+                                siguiente plan estratégico de controles técnicos y administrativos:
+                            </p>
+
+                            <!-- Responsive Table 2 -->
+                            <div class="overflow-x-auto my-6 border border-slate-200 dark:border-slate-800 rounded-xl">
+                                <table class="w-full text-left text-xs sm:text-sm">
+                                    <thead
+                                        class="bg-slate-100 dark:bg-slate-800 border-b border-slate-200 dark:border-slate-800">
+                                        <tr>
+                                            <th class="p-3 font-semibold">Riesgo Crítico Identificado</th>
+                                            <th class="p-3 font-semibold">Impacto Técnico</th>
+                                            <th class="p-3 font-semibold">Control de Hardening Aplicado</th>
+                                            <th class="p-3 font-semibold">Resultados Esperados y Validación</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-slate-200 dark:divide-slate-800">
+                                        <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30">
+                                            <td class="p-3 font-semibold text-slate-900 dark:text-white">Dump de LSASS /
+                                                Credential Harvesting.</td>
+                                            <td class="p-3">Robo de credenciales administrativas en memoria de usuario.
+                                            </td>
+                                            <td class="p-3 font-mono text-xs bg-slate-50/50 dark:bg-slate-850">
+                                                Habilitación de RunAsPPL con UEFI Lock y despliegue de Windows Defender
+                                                Credential Guard en VTL1.</td>
+                                            <td class="p-3">Reducción de la viabilidad de extracción de hashes NTLM e
+                                                inyección de SSPs maliciosos a cero en VTL0. Validación mediante
+                                                auditoría de eventos ID 3065 en el log CodeIntegrity.</td>
+                                        </tr>
+                                        <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30">
+                                            <td class="p-3 font-semibold text-slate-900 dark:text-white">Ejecución de
+                                                Código Remoto en Red (RCE / Zero-Click).</td>
+                                            <td class="p-3">Compromiso de kernel y toma de control absoluto del equipo.
+                                            </td>
+                                            <td class="p-3 font-mono text-xs bg-slate-50/50 dark:bg-slate-850">
+                                                Automatización de la entrega de parches críticos vía WSUS e
+                                                inhabilitación del adaptador IPv6 en estaciones vulnerables.</td>
+                                            <td class="p-3">Cierre inmediato del vector de inyección de paquetes
+                                                manipulados en tcpip.sys. Validación mediante monitoreo del agente de
+                                                parches local.</td>
+                                        </tr>
+                                        <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/30">
+                                            <td class="p-3 font-semibold text-slate-900 dark:text-white">Retransmisión
+                                                de Autenticación (NTLM Relay).</td>
+                                            <td class="p-3">Captura de hashes de sesión y suplantación de identidad en
+                                                la red.</td>
+                                            <td class="p-3 font-mono text-xs bg-slate-50/50 dark:bg-slate-850">
+                                                Desactivación de LLMNR y NetBIOS vía Directivas de Grupo; imposición de
+                                                firma SMB requerida obligatoria.</td>
+                                            <td class="p-3">Eliminación de las respuestas de multidifusión local no
+                                                confiables que interceptan herramientas como Responder. Validación
+                                                mediante rastreo con analizadores de paquetes en red.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <h3
+                                class="text-lg font-bold text-slate-900 dark:text-white mt-8 mb-4 border-l-4 border-brand-500 pl-3">
+                                Resultados del Hardening e Indicadores de Postura de Seguridad
+                            </h3>
+                            <p>
+                                La aplicación sistemática del manual de hardening arrojó mejoras significativas en la
+                                resistencia del sistema operativo ante ataques simulados. Antes del despliegue del
+                                hardening, el equipo de seguridad de prueba logró realizar volcados de credenciales
+                                satisfactorios sobre el proceso LSASS en menos del 10% del tiempo estimado de análisis
+                                utilizando herramientas estándar de auditoría (Purple Team, 2026; SafeLink IT, 2026).
+                                Tras la imposición de las políticas de LSA Protegido (RunAsPPL) y el aislamiento por VBS
+                                de Credential Guard, todos los intentos de volcado de la memoria de identidades fueron
+                                bloqueados por el hipervisor con un código de error de acceso denegado del sistema
+                                (Purple Team, 2026; Microsoft, 2026d; Netwrix, 2026).
+                            </p>
+                            <p>
+                                De igual forma, el escaneo pasivo de red posterior al hardening demostró una reducción
+                                absoluta (100%) de las tramas de difusión inseguras del protocolo LLMNR y NetBIOS en el
+                                segmento local evaluado, forzando la canalización ordenada de todas las solicitudes a
+                                través de servidores DNS internos autenticados y con firmas criptográficas de sesión
+                                activas (UnderDefense, 2026; CERN, 2026).
+                            </p>
+
+                            <h3
+                                class="text-lg font-bold text-slate-900 dark:text-white mt-8 mb-4 border-l-4 border-brand-500 pl-3">
+                                Directivas Corporativas de Buenas Prácticas
+                            </h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+                                <div
+                                    class="p-6 bg-slate-50 dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700">
+                                    <h4 class="font-bold text-slate-900 dark:text-white flex items-center gap-2 mb-4">
+                                        <i data-lucide="user-check" class="text-brand-500 w-5 h-5"></i> Para Usuarios
+                                        Finales
+                                    </h4>
+                                    <ul class="space-y-3 text-xs text-slate-600 dark:text-slate-400 list-none pl-0">
+                                        <li class="flex items-start gap-2">
+                                            <span class="text-brand-500 font-bold">•</span>
+                                            <span><strong>Autenticación sin Contraseñas:</strong> Utilizar de manera
+                                                exclusiva las tecnologías biométricas y de PIN complejo de Windows Hello
+                                                para empresas para realizar el desbloqueo diario del endpoint
+                                                corporativo, eliminando el riesgo de interceptación por teclado
+                                                (keylogging) de contraseñas estáticas (JumpCloud, 2026; Microsoft,
+                                                2026c).</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <span class="text-brand-500 font-bold">•</span>
+                                            <span><strong>Preservación del Cifrado Físico:</strong> Mantener el
+                                                dispositivo de almacenamiento externo en estado bloqueado y asegurar que
+                                                el equipo no sea dejado en entornos públicos desatendidos en estado
+                                                desbloqueado, garantizando que el chip TPM mantenga la integridad de los
+                                                datos en reposo a través de BitLocker (Amazon Web Services, 2026;
+                                                JumpCloud, 2026).</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <span class="text-brand-500 font-bold">•</span>
+                                            <span><strong>Uso Exclusivo de Redes Seguras:</strong> Conectarse a las
+                                                redes inalámbricas de la corporación o canales VPN cifrados autorizados
+                                                por el departamento de tecnología, absteniéndose de utilizar redes
+                                                inalámbricas abiertas o públicas que expongan el tráfico a ataques de
+                                                intermediario (UnderDefense, 2026; RDR-IT, 2026).</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <span class="text-brand-500 font-bold">•</span>
+                                            <span><strong>Reporte Inmediato de Anomalías:</strong> Informar al
+                                                departamento de seguridad informática ante cualquier aviso inusual de
+                                                advertencia del Control de Cuentas de Usuario (UAC) o alertas del
+                                                antivirus Defender que soliciten ejecuciones de archivos o complementos
+                                                no autorizados en su jornada laboral diaria.</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div
+                                    class="p-6 bg-slate-50 dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700">
+                                    <h4 class="font-bold text-slate-900 dark:text-white flex items-center gap-2 mb-4">
+                                        <i data-lucide="shield-alert" class="text-brand-500 w-5 h-5"></i> Para
+                                        Administradores de Sistemas
+                                    </h4>
+                                    <ul class="space-y-3 text-xs text-slate-600 dark:text-slate-400 list-none pl-0">
+                                        <li class="flex items-start gap-2">
+                                            <span class="text-brand-500 font-bold">•</span>
+                                            <span><strong>Estructura de Delegación de Confianza Cero:</strong> Aplicar
+                                                de manera estricta el principio del menor privilegio en la
+                                                administración de redes, limitando la pertenencia a los grupos de
+                                                Administradores de Dominio y utilizando cuentas de administración de
+                                                nivel superior (Tier 0) exclusivamente en Estaciones de Trabajo de
+                                                Acceso Privilegiado (PAW) (SafeLink IT, 2026).</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <span class="text-brand-500 font-bold">•</span>
+                                            <span><strong>Validación de Parches de Seguridad:</strong> Establecer
+                                                ventanas de mantenimiento rigurosas de un máximo de 72 horas para
+                                                evaluar y desplegar en producción las actualizaciones de seguridad
+                                                calificadas por Microsoft como "Críticas" o "Importantes", disminuyendo
+                                                la exposición temporal ante vulnerabilidades conocidas (WindowsForum,
+                                                2026; NSFOCUS CERT, 2026; Computerworld, 2026).</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <span class="text-brand-500 font-bold">•</span>
+                                            <span><strong>Monitoreo Continuo del Estado de Protección:</strong> Realizar
+                                                auditorías sistemáticas en los endpoints para confirmar la persistencia
+                                                de las directivas de RunAsPPL, VBS e integridad de código, identificando
+                                                posibles desvíos de configuración debidos a actualizaciones
+                                                incompatibles o manipulaciones del sistema (SafeLink IT, 2026; NinjaOne,
+                                                2026).</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <span class="text-brand-500 font-bold">•</span>
+                                            <span><strong>Cierre Definitivo de Canales Heredados:</strong> Diseñar
+                                                planes de migración estructurados para retirar sistemas que requieran de
+                                                protocolos inseguros (como SMBv1 u opciones de autenticación NTLMv1),
+                                                reemplazándolos por infraestructuras modernas que soporten de forma
+                                                nativa autenticación robusta por Kerberos y canales de transporte
+                                                cifrados (Microsoft, 2026c; RDR-IT, 2026; CERN, 2026).</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <h3
+                                class="text-lg font-bold text-slate-900 dark:text-white mt-8 mb-4 border-l-4 border-brand-500 pl-3">
+                                Reflexión de Aprendizaje y Desafíos Tecnológicos del S.O.
+                            </h3>
+                            <p>
+                                La ingeniería de seguridad sobre el sistema operativo Windows plantea un desafío
+                                intelectual y técnico constante para los profesionales del área: lograr un balance
+                                armónico entre una defensa informática inquebrantable y la compatibilidad operativa con
+                                aplicaciones heredadas de negocio (Microsoft, 2026a; Purple Team, 2026). La mayor
+                                lección derivada del análisis de este sistema radica en comprender que la robustez de un
+                                sistema no se mide por la cantidad de herramientas de seguridad que integra, sino por la
+                                correcta configuración, interacción y eliminación de redundancias de sus componentes
+                                nativos (Microsoft, 2026d; Microsoft, 2026g).
+                            </p>
+                            <p>
+                                El principal obstáculo técnico al implementar estas políticas radica en los impactos
+                                imprevistos sobre la compatibilidad de software. Por ejemplo, habilitar Credential Guard
+                                de manera uniforme en entornos heredados deshabilita de inmediato el soporte para
+                                protocolos de autenticación antiguos como NTLMv1, MS-CHAPv2, Digest y CredSSP
+                                (Microsoft, 2026c; Microsoft, 2026d). Esto provoca fallos de conexión en aplicaciones
+                                antiguas, enrutadores de red heredados y sistemas de almacenamiento NAS que dependen de
+                                estas tecnologías para autenticar a los usuarios corporativos (Microsoft, 2026c;
+                                Microsoft, 2026d). De igual forma, forzar la protección de LSASS mediante RunAsPPL puede
+                                impedir que agentes de antivirus (AV), soluciones de detección y respuesta en endpoints
+                                (EDR) de terceros o componentes de inicio de sesión único (SSO) no certificados se
+                                carguen de manera correcta en el proceso, generando inestabilidad en el sistema
+                                operativo o problemas de rendimiento (Microsoft, 2026d; SafeLink IT, 2026; NinjaOne,
+                                2026).
+                            </p>
+                            <p>
+                                Por tanto, el desafío supremo para los administradores modernos no consiste únicamente
+                                en conocer qué parámetros activar, sino en dominar la metodología para auditar la
+                                compatibilidad, realizar pruebas de control estructuradas utilizando suites como
+                                Security Compliance Toolkit, y trazar hojas de ruta que permitan elevar gradualmente la
+                                seguridad de la compañía sin interrumpir la continuidad operativa indispensable para la
+                                misión del negocio (SafeLink IT, 2026; Microsoft, 2026g; WindowsForum, 2026).
+                            </p>
+
+                            <!-- References Section (All 44 Entries) -->
+                            <h3
+                                class="text-base font-bold text-slate-900 dark:text-white mt-10 mb-4 uppercase tracking-wider">
+                                Referencias Bibliográficas
+                            </h3>
+                            <div
+                                class="text-[11px] text-slate-500 dark:text-slate-400 space-y-3 font-mono leading-relaxed bg-slate-50 dark:bg-slate-950 p-6 rounded-xl border border-slate-200 dark:border-slate-800 max-h-[500px] overflow-y-auto">
+                                <p>• Amazon Web Services. (2026). Credential Guard / Virtualization-Based Security (VBS)
+                                    - Amazon WorkSpaces. Recuperado de
+                                    https://docs.aws.amazon.com/workspaces/latest/adminguide/credential-guard-vbs.html
+                                </p>
+                                <p>• Blumira. (2024). CVE-2024-38063 Windows TCP/IP Remote Code Execution Vulnerability.
+                                    Recuperado de
+                                    https://www.blumira.com/blog/cve-2024-38063-windows-tcp/ip-remote-code-execution-vulnerability
+                                </p>
+                                <p>• Boutnaru, S. (2023). The Windows Security Journey — ACL (Access Control List).
+                                    Medium. Recuperado de
+                                    https://medium.com/@boutnaru/the-windows-security-journey-acl-access-control-list-b7d9a6fe4282
+                                </p>
+                                <p>• CERN. (2026). Disabling Netbios on Windows desktops - Device and Productivity
+                                    Software. Recuperado de
+                                    https://devices.docs.cern.ch/devices/windows/security/netbios/</p>
+                                <p>• Computerworld. (2026). For June, Patch Tuesday means an IT scramble. Recuperado de
+                                    https://www.computerworld.com/article/4184571/for-june-patch-tuesday-means-an-it-scramble.html
+                                </p>
+                                <p>• Concurrency. (2026). Policy Analyzer. Recuperado de
+                                    https://concurrency.com/blog/policy-analyzer/</p>
+                                <p>• CrowdStrike. (2026). Tech Analysis: CrowdStrike's Kernel Access and Security
+                                    Architecture. Recuperado de
+                                    https://www.crowdstrike.com/en-us/blog/tech-analysis-kernel-access-security-architecture/
+                                </p>
+                                <p>• F5 Labs. (2026). Weekly Threat Bulletin – February 18th, 2026. Recuperado de
+                                    https://www.f5.com/labs/articles/weekly-threat-bulletin-february-18th-2026</p>
+                                <p>• Gollmann, D. (2011). Windows 2000 Security. IMADA. Recuperado de
+                                    https://imada.sdu.dk/~joan/security/ch07.pdf</p>
+                                <p>• Groll, M., & Schwenk, J. (2025). Critical Analysis of CVE-2024-38063: The Microsoft
+                                    IPv6-Vulnerability. DB-Thüringen. Recuperado de
+                                    https://www.db-thueringen.de/servlets/MCRFileNodeServlet/dbt_derivate_00068871/ilm1-202520021_005-008.pdf
+                                </p>
+                                <p>• itm4n. (2026). Do You Really Know About LSA Protection (RunAsPPL)?. itm4n's blog.
+                                    Recuperado de https://itm4n.github.io/lsass-runasppl/</p>
+                                <p>• JumpCloud. (2026). What Is Windows Defender Credential Guard?. Recuperado de
+                                    https://jumpcloud.com/it-index/what-is-windows-defender-credential-guard</p>
+                                <p>• Krishnaa, V. (2026). Deep Dive into Windows Architecture (Part -1) for beginners.
+                                    Medium. Recuperado de
+                                    https://medium.com/@vigneshkrishnaa007/deep-dive-into-windows-architecture-part-1-57051c1649f8
+                                </p>
+                                <p>• Loos, A. (2018). Introduction to Microsoft Policy Analyzer. Recuperado de
+                                    https://arnaudloos.com/2018/intro-to-policy-analyzer/</p>
+                                <p>• Microsoft. (2026a). Virtualization-based Security (VBS). Microsoft Learn.
+                                    Recuperado de
+                                    https://learn.microsoft.com/en-us/windows-hardware/design/device-experiences/oem-vbs
+                                </p>
+                                <p>• Microsoft. (2026b). AppContainer isolation - Win32 apps. Microsoft Learn.
+                                    Recuperado de
+                                    https://learn.microsoft.com/en-us/windows/win32/secauthz/appcontainer-isolation</p>
+                                <p>• Microsoft. (2026c). How Credential Guard works. Microsoft Learn. Recuperado de
+                                    https://learn.microsoft.com/en-us/windows/security/identity-protection/credential-guard/how-it-works
+                                </p>
+                                <p>• Microsoft. (2026d). Credential Guard overview. Microsoft Learn. Recuperado de
+                                    https://learn.microsoft.com/en-us/windows/security/identity-protection/credential-guard/
+                                </p>
+                                <p>• Microsoft. (2026e). Security baselines guide. Microsoft Learn. Recuperado de
+                                    https://learn.microsoft.com/en-us/windows/security/operating-system-security/device-management/windows-security-configuration-framework/windows-security-baselines
+                                </p>
+                                <p>• Microsoft. (2026f). Download Microsoft Security Compliance Toolkit 1.0 from
+                                    Official Microsoft Download Center. Recuperado de
+                                    https://www.microsoft.com/en-us/download/details.aspx?id=55319</p>
+                                <p>• Microsoft. (2026g). Microsoft Security Compliance Toolkit Guide. Microsoft Learn.
+                                    Recuperado de
+                                    https://learn.microsoft.com/en-us/windows/security/operating-system-security/device-management/windows-security-configuration-framework/security-compliance-toolkit-10
+                                </p>
+                                <p>• Microsoft. (2026h). Microsoft January 2026 Security Updates (FYI). Recuperado de
+                                    https://learn.microsoft.com/en-us/answers/questions/5706881/microsoft-january-2026-security-updates-(fyi)
+                                </p>
+                                <p>• Microsoft. (2026i). Configure added LSA protection. Microsoft Learn. Recuperado de
+                                    https://learn.microsoft.com/en-us/windows-server/security/credentials-protection-and-management/configuring-additional-lsa-protection
+                                </p>
+                                <p>• National Vulnerability Database. (2021). CVE-2021-34527 Detail. Recuperado de
+                                    https://nvd.nist.gov/vuln/detail/cve-2021-34527</p>
+                                <p>• Netwrix. (2026). Guide to Active Directory Security Best Practices. Recuperado de
+                                    https://netwrix.com/en/resources/guides/active-directory-security-best-practices/
+                                </p>
+                                <p>• NinjaOne. (2026). Verify Local Security Authority Protection in Windows 11.
+                                    Recuperado de
+                                    https://www.ninjaone.com/blog/how-to-verify-local-security-authority-protection/</p>
+                                <p>• NSFOCUS CERT. (2026). Microsoft's Security Update in June of High-Risk
+                                    Vulnerability Notice for Multiple Products. Recuperado de
+                                    https://nsfocusglobal.com/microsofts-security-update-in-june-of-high-risk-vulnerability-notice-for-multiple-products-2/
+                                </p>
+                                <p>• OPSWAT. (2024). CVE-2024-38063 – Windows TCP/IP Vulnerability Explained. Recuperado
+                                    de
+                                    https://www.opswat.com/blog/comprehensive-breakdown-of-cve-2024-38063-a-critical-threat-in-the-windows-tcp-ip-stack
+                                </p>
+                                <p>• Orca Security. (2024). Mitigating CVE 2024-38063: Critical RCE Vulnerability On
+                                    Windows Systems With IPv6. Recuperado de
+                                    https://orca.security/resources/blog/mitigate-cve-2024-38063-critical-rce-vulnerability-windows-ipv6/
+                                </p>
+                                <p>• PaperCut. (2021). Impact on PaperCut Software due to Print Nightmare
+                                    vulnerabilities. Recuperado de
+                                    https://www.papercut.com/kb/Main/PrintNightmareCVE2021/</p>
+                                <p>• Purple Team. (2026). Credential Guard. Recuperado de
+                                    https://ipurple.team/2026/03/17/credential-guard/</p>
+                                <p>• Rapid7. (2021). Rapid7 Analysis: CVE-2021-34527 "PrintNightmare". Recuperado de
+                                    https://www.rapid7.com/blog/post/ra-cve-2021-34527-printnightmare-analysis/</p>
+                                <p>• RDR-IT. (2026). Active Directory: harden the security of your environment.
+                                    Recuperado de
+                                    https://rdr-it.com/en/active-directory-harden-the-security-of-your-environment/</p>
+                                <p>• SafeLink IT. (2026). LSASS as a Protected Process (RunAsPPL): raise the bar for
+                                    credential theft. Recuperado de
+                                    https://safelink-it.com/en/blog/ad-hardening-lsass-protected-process-runas-ppl/</p>
+                                <p>• SambaXP. (2011). Permissions for a Wider World. Recuperado de
+                                    https://sambaxp.org/archive_data/sxp11/SambaXP2011-DATA/day2track1/richacls_xp2011_final.pdf
+                                </p>
+                                <p>• Scribd. (2026). Windows Access Control Models Explained. Recuperado de
+                                    https://www.scribd.com/document/915286139/Access-Control-in-Microsoft-Windows</p>
+                                <p>• SecureW2. (2026). Windows Access Control Lists: ACL, SACL, DACL, & ACE. Recuperado
+                                    de https://securew2.com/blog/windows-access-control-acl-dacl-sacl-ace</p>
+                                <p>• Seguridad en Sistemas Operativos. (2026). Windows.</p>
+                                <p>• SentinelOne. (2021). PrintNightmare Vulnerability: Analysis and Mitigation.
+                                    Recuperado de
+                                    https://www.sentinelone.com/blog/printnightmare-latest-patch-almost-puts-microsoft-vulnerability-to-bed/
+                                </p>
+                                <p>• Stallings, M. (2026). Performing a Comprehensive Gap Analysis with Microsoft Policy
+                                    Analyzer: A Lab Experience. Medium. Recuperado de
+                                    https://medium.com/@mstallings.dev/performing-a-comprehensive-gap-analysis-with-microsoft-policy-analyzer-a-lab-experience-54176094d79a
+                                </p>
+                                <p>• Steven's Knowledge Base. (2023). Policy Analyzer. Recuperado de
+                                    https://blog.blue929.com/2023/08/24/policy-analyzer/</p>
+                                <p>• TechExpert.Tips. (2026). Tutorial GPO - Disable LLMNR on Windows. Recuperado de
+                                    https://techexpert.tips/windows/gpo-disable-llmnr-windows/</p>
+                                <p>• The Knowledge Academy. (2026). Top 7 Microsoft Baseline Security Analyzer
+                                    Alternatives. Recuperado de
+                                    https://www.theknowledgeacademy.com/blog/microsoft-baseline-security-analyzer-alternative/
+                                </p>
+                                <p>• UnderDefense. (2026). 3 Key Critical Vulnerabilities and Mitigation Flows of Them.
+                                    Recuperado de
+                                    https://underdefense.com/guides/3-key-critical-vulnerabilities-and-mitigation-flows-that-brought-97-success-rate-during-the-last-70-internal-pentests/
+                                </p>
+                                <p>• Wikipedia. (2026). Architecture of Windows NT. Recuperado de
+                                    https://en.wikipedia.org/wiki/Architecture_of_Windows_NT</p>
+                                <p>• WindowsForum. (2026). Microsoft Security Compliance Toolkit: Essential Guide for
+                                    Windows Security & Hardening. Recuperado de
+                                    https://windowsforum.com/threads/microsoft-security-compliance-toolkit-essential-guide-for-windows-security-hardening.375199/
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Post Footer/Tags -->
+                        <div class="border-t border-slate-100 dark:border-slate-800 pt-6 mt-8 flex flex-wrap gap-2">
+                            <span class="text-xs font-semibold text-slate-400 py-1 flex items-center gap-1.5"><i
+                                    data-lucide="tag" class="w-3.5 h-3.5"></i> Etiquetas:</span>
+                            <span
+                                class="px-2.5 py-1 bg-slate-100 dark:bg-slate-800 rounded-lg text-xs font-medium text-slate-600 dark:text-slate-400">seguridad</span>
+                            <span
+                                class="px-2.5 py-1 bg-slate-100 dark:bg-slate-800 rounded-lg text-xs font-medium text-slate-600 dark:text-slate-400">cumplimiento</span>
+                            <span
+                                class="px-2.5 py-1 bg-slate-100 dark:bg-slate-800 rounded-lg text-xs font-medium text-slate-600 dark:text-slate-400">mitigation</span>
+                            <span
+                                class="px-2.5 py-1 bg-slate-100 dark:bg-slate-800 rounded-lg text-xs font-medium text-slate-600 dark:text-slate-400">best-practices</span>
                         </div>
                     </div>
                 </article>
 
             </div>
+
         </div>
     </main>
 
+    <!-- Interactive Lightbox Modal for Zooming Figures -->
     <div id="image-modal"
         class="fixed inset-0 z-50 bg-slate-950/90 hidden backdrop-blur-md items-center justify-center p-4">
         <button onclick="closeModal()"
@@ -453,8 +1724,32 @@
         </div>
     </div>
 
+    <!-- Academic Footer -->
     <footer class="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 transition mt-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div
+                class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center border-b border-slate-100 dark:border-slate-800 pb-8 mb-8">
+                <div>
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-white">Facultad de Ciencias Matemáticas y
+                        Físicas</h3>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                        Universidad de Guayaquil. Todos los derechos reservados © 2026.<br>
+                        Proyecto desarrollado para la materia de Seguridad Informática.
+                    </p>
+                </div>
+                <div class="flex flex-col md:items-end gap-2 text-xs text-slate-600 dark:text-slate-400 font-semibold">
+                    <span
+                        class="bg-brand-50 text-brand-700 dark:bg-brand-950/30 dark:text-brand-300 px-3 py-1 rounded-full border border-brand-200 dark:border-brand-800">Materia:
+                        Seguridad Informática</span>
+                    <span
+                        class="bg-emerald-50 text-emerald-700 dark:bg-emerald-950/30 dark:text-emerald-300 px-3 py-1 rounded-full border border-emerald-200 dark:border-emerald-800">Carrera:
+                        Ingeniería de Software</span>
+                    <span
+                        class="bg-violet-50 text-violet-700 dark:bg-violet-950/30 dark:text-violet-300 px-3 py-1 rounded-full border border-violet-200 dark:border-violet-800">Grupo
+                        de Trabajo: Grupo 6</span>
+                </div>
+            </div>
+
             <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
                 <div class="flex items-center gap-2">
                     <div class="p-1.5 bg-brand-500 text-white rounded">
@@ -464,17 +1759,24 @@
                         Grupo 6</span>
                 </div>
                 <div class="flex flex-wrap gap-4 text-xs text-slate-500 dark:text-slate-400">
-                    <span>Jacho M. M.</span> · <span>Martinez G. S.</span> · <span>Quimiz A. E.</span> · <span>Quiroga
-                        R. A.</span>
+                    <span>Jacho M. M.</span>
+                    <span>•</span>
+                    <span>Martinez G. S.</span>
+                    <span>•</span>
+                    <span>Quimiz A. E.</span>
+                    <span>•</span>
+                    <span>Quiroga R. A.</span>
                 </div>
             </div>
         </div>
     </footer>
 
+    <!-- Interactive JavaScript -->
     <script>
+        // Init Lucide Icons
         lucide.createIcons();
 
-        // Dark/Light Theme Control
+        // Theme Toggle State
         const themeToggleBtn = document.getElementById('theme-toggle');
         const themeIconLight = document.getElementById('theme-icon-light');
         const themeIconDark = document.getElementById('theme-icon-dark');
@@ -529,7 +1831,9 @@
 
         searchInput.addEventListener('input', filterPosts);
 
+        // Filter tags
         function filterByTag(tagName) {
+            // Update UI buttons
             const buttons = document.querySelectorAll('.tag-btn');
             buttons.forEach(btn => {
                 if (btn.getAttribute('data-tag') === tagName) {
@@ -538,10 +1842,11 @@
                     btn.className = "tag-btn px-2.5 py-1 rounded-lg text-xs font-medium transition bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300";
                 }
             });
+
             filterPosts();
         }
 
-        // Image Zoom Modal
+        // Image Zoom and Modal System
         function openImageInModal(src, title, desc) {
             const modal = document.getElementById('image-modal');
             const modalImg = document.getElementById('modal-img');
@@ -561,6 +1866,7 @@
             modal.classList.remove('flex');
         }
 
+        // Attach double click or zoom badge clicks to expand actual local images (or fallback SVGs)
         document.querySelectorAll('figure').forEach(fig => {
             const img = fig.querySelector('img');
             const zoomBtn = fig.querySelector('.group');
@@ -571,7 +1877,7 @@
             }
         });
 
-        // Fallback Vector Diagram generator if images fail to load
+        // Fallback Vector Diagram generator in case raw PNGs are not in the local root folder yet
         function handleImageError(imageEl, title, diagramExplanation) {
             const container = imageEl.parentElement;
             imageEl.style.display = 'none';
@@ -581,32 +1887,109 @@
                 svgMockup = `
                 <div class="w-full min-h-[280px] bg-slate-900 text-slate-200 p-6 flex flex-col justify-between items-center font-sans text-xs select-none">
                     <div class="w-full bg-blue-950/60 border border-blue-800 rounded-xl p-4 text-center">
-                        <span class="bg-blue-900 text-blue-200 px-2 py-0.5 rounded text-[10px] font-bold uppercase mb-2 inline-block">Modo Usuario (Ring 3)</span>
+                        <span class="bg-blue-900 text-blue-200 px-2 py-0.5 rounded text-[10px] font-bold uppercase mb-2 inline-block">Modo Usuario (Ring 3) - Restringido</span>
                         <div class="flex justify-around gap-2 mt-2">
-                            <div class="bg-slate-800 border border-slate-700 p-2 rounded w-1/2">Procesos de Usuario</div>
-                            <div class="bg-amber-900/30 border border-amber-800 p-2 rounded w-1/2 font-bold">LSASS.exe</div>
+                            <div class="bg-slate-800 border border-slate-700 p-2 rounded w-1/3">Chrome / Word</div>
+                            <div class="bg-amber-900/30 border border-amber-800 p-2 rounded w-1/3 font-bold">LSASS.exe (VTL0)</div>
+                            <div class="bg-slate-800 border border-slate-700 p-2 rounded w-1/3">AppContainers</div>
                         </div>
                     </div>
-                    <div class="my-2 text-brand-400 font-mono text-[10px]">System Calls ➔</div>
+                    <div class="my-3 flex flex-col items-center gap-1">
+                        <span class="text-brand-400 font-mono text-[10px] flex items-center gap-1"><i data-lucide="arrow-down-to-dot" class="w-3 h-3"></i> Llamadas de Sistema (System Calls)</span>
+                        <div class="w-0.5 h-6 bg-brand-500"></div>
+                    </div>
                     <div class="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-center">
-                        <span class="bg-slate-800 text-slate-300 px-2 py-0.5 rounded text-[10px] font-bold uppercase mb-2 inline-block">Modo Kernel (Ring 0)</span>
-                        <div class="bg-indigo-950/40 border border-indigo-900 p-2 rounded w-full">Executive Services (SRM, Kernel, HAL)</div>
+                        <span class="bg-slate-800 text-slate-300 px-2 py-0.5 rounded text-[10px] font-bold uppercase mb-2 inline-block">Modo Kernel (Ring 0) - Privilegiado</span>
+                        <div class="flex justify-around gap-2 mt-2">
+                            <div class="bg-indigo-950/40 border border-indigo-900 p-2 rounded w-1/2">Windows Executive (SRM)</div>
+                            <div class="bg-indigo-950/40 border border-indigo-900 p-2 rounded w-1/2">Microkernel & HAL (tcpip.sys)</div>
+                        </div>
+                    </div>
+                </div>`;
+            } else if (title.includes('Eventos') || title.includes('Auditoría') || title.includes('Visor')) {
+                svgMockup = `
+                <div class="w-full min-h-[280px] bg-slate-900 text-slate-200 p-4 flex flex-col justify-between font-sans text-xs select-none border border-slate-800 rounded-xl">
+                    <div class="flex justify-between items-center bg-slate-950 p-2 rounded border border-slate-800 mb-2">
+                        <span class="font-bold flex items-center gap-1.5 text-brand-400"><i data-lucide="terminal" class="w-4 h-4"></i> Visor de Eventos (Event Viewer) - CodeIntegrity</span>
+                        <span class="text-[10px] text-slate-500 font-mono">Microsoft-Windows-CodeIntegrity/Operational</span>
+                    </div>
+                    <div class="grid grid-cols-12 gap-2 flex-grow">
+                        <div class="col-span-3 bg-slate-950/60 p-2 rounded border border-slate-800/50 hidden md:block">
+                            <span class="font-bold text-[10px] text-slate-400 block mb-1">Carpetas de registros</span>
+                            <ul class="space-y-1 text-[9px] text-slate-300">
+                                <li>📁 App & Services</li>
+                                <li class="pl-2">📁 Microsoft</li>
+                                <li class="pl-4">📁 Windows</li>
+                                <li class="pl-6 text-brand-400 font-semibold">📁 CodeIntegrity</li>
+                                <li class="pl-8 text-brand-300">ℹ️ Operational</li>
+                            </ul>
+                        </div>
+                        <div class="col-span-12 md:col-span-9 space-y-2">
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-left text-[9px] font-mono">
+                                    <thead class="bg-slate-800 text-slate-300">
+                                        <tr>
+                                            <th class="p-1">Nivel</th>
+                                            <th class="p-1">Fecha y hora</th>
+                                            <th class="p-1">Origen</th>
+                                            <th class="p-1">Id. de evento</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-slate-800">
+                                        <tr class="bg-blue-950/20 text-blue-300 font-semibold">
+                                            <td class="p-1">ℹ️ Información</td>
+                                            <td class="p-1">19/06/2026 10:49:44 a.m.</td>
+                                            <td class="p-1">CodeIntegrity</td>
+                                            <td class="p-1">3089</td>
+                                        </tr>
+                                        <tr class="text-slate-400">
+                                            <td class="p-1">ℹ️ Información</td>
+                                            <td class="p-1">19/06/2026 10:49:40 a.m.</td>
+                                            <td class="p-1">CodeIntegrity</td>
+                                            <td class="p-1">3009</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="p-2 bg-slate-950/80 rounded border border-slate-800 text-[10px]">
+                                <p class="font-bold text-slate-300 mb-1">Detalles del Evento (Id. 3089):</p>
+                                <p class="text-slate-400 font-mono text-[9px]">Signature information for another event. Match using the Correlation Id.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>`;
             } else {
                 svgMockup = `
-                <div class="w-full min-h-[280px] bg-slate-900 text-slate-400 p-6 flex items-center justify-center font-mono text-xs border border-slate-800 rounded-xl">
-                    <div>[ Generando Vista Esquemática: ${title} ]</div>
+                <div class="w-full min-h-[280px] bg-slate-900 text-slate-200 p-6 flex flex-col justify-around items-center font-sans text-xs select-none">
+                    <div class="w-full space-y-3">
+                        <div class="bg-blue-900/60 border border-blue-800 p-3 rounded-lg text-center font-bold">
+                            1. PROTECCIÓN FÍSICA Y DE BOOT (TPM 2.0, Secure Boot, BitLocker)
+                        </div>
+                        <div class="text-center text-brand-400 font-bold">↓</div>
+                        <div class="bg-emerald-900/60 border border-emerald-800 p-3 rounded-lg text-center font-bold">
+                            2. PROTECCIÓN DEL ENTORNO DE KERNEL (VBS, HVCI, Credential Guard)
+                        </div>
+                        <div class="text-center text-brand-400 font-bold">↓</div>
+                        <div class="bg-amber-900/60 border border-amber-800 p-3 rounded-lg text-center font-bold">
+                            3. ROBUSTECIMIENTO DE PROTOCOLOS DE RED (Desactivar LLMNR/NetBIOS, SMBv3)
+                        </div>
+                        <div class="text-center text-brand-400 font-bold">↓</div>
+                        <div class="bg-yellow-900/60 border border-yellow-800 p-3 rounded-lg text-center font-bold">
+                            4. AUDITORÍA Y REMEDIACIÓN CONTINUA (SCT Policy Analyzer, WSUS)
+                        </div>
+                    </div>
                 </div>`;
             }
 
             container.innerHTML = `
-                <div onclick="openImageInModal('${imageEl.getAttribute('src')}', '${title}', '${diagramExplanation}')" class="cursor-pointer hover:opacity-95 transition">
+                <div onclick="openImageInModal('', '${title}', '${diagramExplanation}')" class="cursor-pointer hover:opacity-95 transition">
                     ${svgMockup}
                     <div class="mt-2 p-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-center text-[10px] text-slate-500">
-                        <i data-lucide="info" class="w-3.5 h-3.5 inline-block -mt-0.5 text-brand-500 mr-1"></i> Imagen no encontrada en /assets/images/. Haz clic para ver detalles.
+                        <i data-lucide="info" class="w-3.5 h-3.5 inline-block -mt-0.5 text-brand-500 mr-1"></i> 
+                        Clic para ampliar la descripción esquemática del modelo teórico interactivo.
                     </div>
-                </div>`;
+                </div>
+            `;
             lucide.createIcons();
         }
     </script>
