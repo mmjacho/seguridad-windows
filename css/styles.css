@@ -1,0 +1,39 @@
+/* ==========================================================================
+   Estilos Académicos Personalizados - Ciberseguridad Windows UG
+   ========================================================================== */
+
+.academic-body {
+    font-family: 'Inter', sans-serif;
+}
+
+.academic-prose {
+    font-family: 'Merriweather', serif;
+    line-height: 1.8;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.dark ::-webkit-scrollbar-track {
+    background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 9999px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    background: #334155;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}

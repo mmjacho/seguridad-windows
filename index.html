@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análisis de Ingeniería de Seguridad en Windows</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            200: '#bae2fd',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        serif: ['Merriweather', 'Georgia', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&display=swap"
+        rel="stylesheet">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body
+    class="academic-body bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300 min-h-screen flex flex-col">
+
+    <header
+        class="border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 backdrop-blur sticky top-0 z-40 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="p-2.5 bg-brand-600 text-white rounded-xl shadow-lg shadow-brand-500/20">
+                    <i data-lucide="shield-alert" class="w-7 h-7"></i>
+                </div>
+                <div>
+                    <h1
+                        class="text-base font-bold tracking-tight text-slate-900 dark:text-white leading-none sm:text-lg">
+                        Universidad de Guayaquil</h1>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 font-medium">Facultad de Ciencias Matemáticas y
+                        Físicas · Ingeniería de Software</p>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <button id="theme-toggle"
+                    class="p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 transition"
+                    aria-label="Toggle theme">
+                    <i id="theme-icon-light" data-lucide="sun" class="w-5 h-5 hidden"></i>
+                    <i id="theme-icon-dark" data-lucide="moon" class="w-5 h-5"></i>
+                </button>
+                <span
+                    class="hidden md:inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-brand-100 text-brand-800 dark:bg-brand-900/30 dark:text-brand-300 border border-brand-200 dark:border-brand-800">
+                    Grupo 6 · Seguridad Informática
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <section class="relative bg-slate-900 text-white py-16 sm:py-24 overflow-hidden">
+        <div
+            class="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-30">
+        </div>
+        <div class="max-w-5xl mx-auto px-4 relative z-10 text-center">
+            <span
+                class="text-brand-400 font-bold tracking-widest text-xs uppercase bg-brand-950/80 border border-brand-800/60 px-3 py-1.5 rounded-full inline-block mb-6">Proyecto
+                de Investigación Semestral</span>
+            <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight mb-6 max-w-4xl mx-auto leading-tight">
+                Análisis de Ingeniería de Seguridad en Sistemas Operativos Windows
+            </h2>
+            <p class="text-lg text-slate-300 max-w-3xl mx-auto mb-8 font-light leading-relaxed">
+                Una revisión exhaustiva de la arquitectura interna de Windows NT, evaluación de vulnerabilidades
+                críticas del kernel y metodologías de endurecimiento para la resiliencia en infraestructuras
+                corporativas.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4 text-sm text-slate-300">
+                <span class="flex items-center gap-2 px-3 py-1 bg-slate-800/80 rounded-lg border border-slate-700"><i
+                        data-lucide="book-open" class="w-4 h-4 text-brand-400"></i> Materia: Seguridad
+                    Informática</span>
+                <span class="flex items-center gap-2 px-3 py-1 bg-slate-800/80 rounded-lg border border-slate-700"><i
+                        data-lucide="award" class="w-4 h-4 text-brand-400"></i> Calificación: Excelente</span>
+                <span class="flex items-center gap-2 px-3 py-1 bg-slate-800/80 rounded-lg border border-slate-700"><i
+                        data-lucide="calendar" class="w-4 h-4 text-brand-400"></i> Junio, 2026</span>
+            </div>
+        </div>
+    </section>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex-grow">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+            <aside class="lg:col-span-4 space-y-6 lg:sticky lg:top-24">
+
+                <div
+                    class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 rounded-2xl shadow-sm transition">
+                    <h3
+                        class="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-4 flex items-center gap-2">
+                        <i data-lucide="search" class="w-4 h-4 text-brand-500"></i> Filtrar Contenidos
+                    </h3>
+                    <div class="relative mb-4">
+                        <input type="text" id="blog-search" placeholder="Buscar por tema o palabra..."
+                            class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 transition">
+                        <i data-lucide="search" class="absolute left-3.5 top-3 w-4 h-4 text-slate-400"></i>
+                    </div>
+                    <div class="space-y-2">
+                        <span class="text-xs font-semibold text-slate-400 dark:text-slate-500 block mb-1">Categorías
+                            Rápidas</span>
+                        <div class="flex flex-wrap gap-1.5" id="tags-container">
+                            <button onclick="filterByTag('todos')"
+                                class="tag-btn active-tag px-2.5 py-1 rounded-lg text-xs font-medium transition bg-brand-500 text-white"
+                                data-tag="todos">Todos</button>
+                            <button onclick="filterByTag('arquitectura')"
+                                class="tag-btn px-2.5 py-1 rounded-lg text-xs font-medium transition bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300"
+                                data-tag="arquitectura">Arquitectura</button>
+                            <button onclick="filterByTag('seguridad')"
+                                class="tag-btn px-2.5 py-1 rounded-lg text-xs font-medium transition bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300"
+                                data-tag="seguridad">Seguridad</button>
+                            <button onclick="filterByTag('vulnerabilidades')"
+                                class="tag-btn px-2.5 py-1 rounded-lg text-xs font-medium transition bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300"
+                                data-tag="vulnerabilidades">Vulnerabilidades</button>
+                            <button onclick="filterByTag('hardening')"
+                                class="tag-btn px-2.5 py-1 rounded-lg text-xs font-medium transition bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300"
+                                data-tag="hardening">Hardening</button>
+                            <button onclick="filterByTag('cumplimiento')"
+                                class="tag-btn px-2.5 py-1 rounded-lg text-xs font-medium transition bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300"
+                                data-tag="cumplimiento">Cumplimiento</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 rounded-2xl shadow-sm transition">
+                    <h3
+                        class="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-4 flex items-center gap-2">
+                        <i data-lucide="book-open" class="w-4 h-4 text-brand-500"></i> Cronograma de Publicaciones
+                    </h3>
+                    <nav class="space-y-1">
+                        <a href="#semana-1"
+                            class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition group border-l-2 border-transparent hover:border-brand-500">
+                            <span class="font-bold text-brand-600 text-xs mt-0.5">S1</span>
+                            <div>
+                                <span
+                                    class="block text-sm font-semibold text-slate-900 dark:text-slate-100 group-hover:text-brand-600 transition">Arquitectura
+                                    y Acceso</span>
+                                <span class="block text-xs text-slate-500 dark:text-slate-400">Jacho Cedeño M. M.</span>
+                            </div>
+                        </a>
+                        <a href="#semana-2"
+                            class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition group border-l-2 border-transparent hover:border-brand-500">
+                            <span class="font-bold text-brand-600 text-xs mt-0.5">S2</span>
+                            <div>
+                                <span
+                                    class="block text-sm font-semibold text-slate-900 dark:text-slate-100 group-hover:text-brand-600 transition">Riesgos
+                                    y Cumplimiento</span>
+                                <span class="block text-xs text-slate-500 dark:text-slate-400">Martinez Orrala G.
+                                    S.</span>
+                            </div>
+                        </a>
+                        <a href="#semana-3"
+                            class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition group border-l-2 border-transparent hover:border-brand-500">
+                            <span class="font-bold text-brand-600 text-xs mt-0.5">S3</span>
+                            <div>
+                                <span
+                                    class="block text-sm font-semibold text-slate-900 dark:text-slate-100 group-hover:text-brand-600 transition">Hardening
+                                    y Robustecimiento</span>
+                                <span class="block text-xs text-slate-500 dark:text-slate-400">Quimiz Plaza A. E.</span>
+                            </div>
+                        </a>
+                        <a href="#semana-4"
+                            class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition group border-l-2 border-transparent hover:border-brand-500">
+                            <span class="font-bold text-brand-600 text-xs mt-0.5">S4</span>
+                            <div>
+                                <span
+                                    class="block text-sm font-semibold text-slate-900 dark:text-slate-100 group-hover:text-brand-600 transition">Proyecto
+                                    Final y Reflexión</span>
+                                <span class="block text-xs text-slate-500 dark:text-slate-400">Quiroga Peralta R.
+                                    A.</span>
+                            </div>
+                        </a>
+                    </nav>
+                </div>
+
+                <div
+                    class="bg-gradient-to-br from-slate-900 to-brand-950 text-white p-6 rounded-2xl shadow-lg border border-slate-800">
+                    <h3 class="text-sm font-bold uppercase tracking-wider mb-5 flex items-center gap-2 text-brand-300">
+                        <i data-lucide="users" class="w-4 h-4"></i> Investigadores del Proyecto
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-3 p-2 bg-white/5 rounded-xl hover:bg-white/10 transition">
+                            <div
+                                class="w-8 h-8 rounded-full bg-brand-500 flex items-center justify-center font-bold text-white text-xs">
+                                JC</div>
+                            <div>
+                                <h4 class="text-xs font-bold">Jacho Cedeño Mario Mauricio</h4>
+                                <span class="text-[10px] text-slate-400">Ingeniería de Software</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 p-2 bg-white/5 rounded-xl hover:bg-white/10 transition">
+                            <div
+                                class="w-8 h-8 rounded-full bg-emerald-500 flex items-center justify-center font-bold text-white text-xs">
+                                MO</div>
+                            <div>
+                                <h4 class="text-xs font-bold">Martinez Orrala Guillermo Samuel</h4>
+                                <span class="text-[10px] text-slate-400">Ingeniería de Software</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 p-2 bg-white/5 rounded-xl hover:bg-white/10 transition">
+                            <div
+                                class="w-8 h-8 rounded-full bg-amber-500 flex items-center justify-center font-bold text-white text-xs">
+                                QP</div>
+                            <div>
+                                <h4 class="text-xs font-bold">Quimiz Plaza Alex Eduardo</h4>
+                                <span class="text-[10px] text-slate-400">Ingeniería de Software</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 p-2 bg-white/5 rounded-xl hover:bg-white/10 transition">
+                            <div
+                                class="w-8 h-8 rounded-full bg-violet-500 flex items-center justify-center font-bold text-white text-xs">
+                                QP</div>
+                            <div>
+                                <h4 class="text-xs font-bold">Quiroga Peralta Ruben Alfredo</h4>
+                                <span class="text-[10px] text-slate-400">Ingeniería de Software</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <div id="posts-stream" class="lg:col-span-8 space-y-16">
+
+                <article id="semana-1"
+                    class="blog-post bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl overflow-hidden shadow-sm hover:shadow-md transition duration-300"
+                    data-tags="arquitectura,seguridad">
+                    <div class="p-6 sm:p-10">
+                        <div
+                            class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-100 dark:border-slate-800 pb-6 mb-6">
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-brand-600/10 dark:bg-brand-500/20 text-brand-600 dark:text-brand-300 flex items-center justify-center font-extrabold text-xs">
+                                    JC</div>
+                                <div>
+                                    <span
+                                        class="block text-xs font-semibold text-slate-400 uppercase tracking-wider">Autor</span>
+                                    <span class="block text-sm font-bold text-slate-800 dark:text-slate-200">Jacho
+                                        Cedeño Mario Mauricio</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2 text-xs text-slate-400">
+                                <span
+                                    class="flex items-center gap-1 bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded-full"><i
+                                        data-lucide="clock" class="w-3.5 h-3.5"></i> 8 min lectura</span>
+                                <span
+                                    class="flex items-center gap-1 bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded-full"><i
+                                        data-lucide="calendar" class="w-3.5 h-3.5"></i> Semana 1</span>
+                            </div>
+                        </div>
+
+                        <span
+                            class="text-brand-600 dark:text-brand-400 text-xs font-bold tracking-widest uppercase block mb-2">Sección
+                            01</span>
+                        <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-white mb-6">
+                            Arquitectura de Seguridad del Sistema Operativo Windows y Control de Acceso
+                        </h2>
+
+                        <div class="academic-prose text-slate-700 dark:text-slate-300 text-[15px] space-y-6">
+                            <p>
+                                La seguridad y estabilidad operativa del sistema operativo Windows NT residen en un
+                                diseño arquitectónico de capas segregadas, fundamentado en la separación rígida de los
+                                modos de ejecución del procesador (Wikipedia, 2026). Este modelo delimita las
+                                operaciones de los hilos de ejecución en dos modos fundamentales: el Modo Usuario (User
+                                Mode) y el Modo Kernel (Kernel Mode) (Wikipedia, 2026; Krishnaa, 2026).
+                            </p>
+
+                            <h3
+                                class="text-lg font-bold text-slate-900 dark:text-white mt-8 mb-4 border-l-4 border-brand-500 pl-3">
+                                Modo Usuario vs. Modo Kernel
+                            </h3>
+                            <p>
+                                En la arquitectura de Windows NT, el Modo Usuario representa un nivel de ejecución
+                                restrictivo que opera bajo el concepto de Anillo 3 (Ring 3)...
+                            </p>
+
+                            <div
+                                class="my-8 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 p-4">
+                                <figure class="text-center">
+                                    <div
+                                        class="relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-950 group">
+                                        <img src="assets/images/Diagrama_de_arquitectura.png"
+                                            alt="Diagrama de Arquitectura de Seguridad Windows"
+                                            class="mx-auto block h-auto max-h-[380px] object-contain transition-transform duration-300 group-hover:scale-105"
+                                            onerror="handleImageError(this, 'Diagrama de Arquitectura de Windows NT', 'Representación del flujo entre el Modo Usuario (Anillo 3) y Modo Kernel (Anillo 0).')">
+                                        <div
+                                            class="absolute inset-0 bg-brand-950/20 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center pointer-events-none">
+                                            <span
+                                                class="px-3 py-1.5 bg-slate-900/90 text-xs font-semibold rounded-lg flex items-center gap-1.5"><i
+                                                    data-lucide="zoom-in" class="w-3.5 h-3.5"></i> Ver Imagen
+                                                Real</span>
+                                        </div>
+                                    </div>
+                                    <figcaption class="mt-3 text-xs text-slate-500 dark:text-slate-400 italic">
+                                        Figura 1: Arquitectura de capas segregadas y transición del procesador entre
+                                        Ring 3 y Ring 0 en Windows NT.
+                                    </figcaption>
+                                </figure>
+                            </div>
+
+                            <h3
+                                class="text-lg font-bold text-slate-900 dark:text-white mt-8 mb-4 border-l-4 border-brand-500 pl-3">
+                                El Modelo de Permisos y Control de Acceso en Windows
+                            </h3>
+                            <p>
+                                El control de acceso en Windows se implementa mediante un modelo basado en objetos
+                                securizables...
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <article id="semana-2"
+                    class="blog-post bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl overflow-hidden shadow-sm hover:shadow-md transition duration-300"
+                    data-tags="vulnerabilidades,cumplimiento">
+                    <div class="p-6 sm:p-10">
+                        <div
+                            class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-100 dark:border-slate-800 pb-6 mb-6">
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-emerald-600/10 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-300 flex items-center justify-center font-extrabold text-xs">
+                                    MO</div>
+                                <div>
+                                    <span
+                                        class="block text-xs font-semibold text-slate-400 uppercase tracking-wider">Autor</span>
+                                    <span class="block text-sm font-bold text-slate-800 dark:text-slate-200">Martinez
+                                        Orrala Guillermo Samuel</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2 text-xs text-slate-400">
+                                <span
+                                    class="flex items-center gap-1 bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded-full"><i
+                                        data-lucide="clock" class="w-3.5 h-3.5"></i> 10 min lectura</span>
+                                <span
+                                    class="flex items-center gap-1 bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded-full"><i
+                                        data-lucide="calendar" class="w-3.5 h-3.5"></i> Semana 2</span>
+                            </div>
+                        </div>
+
+                        <span
+                            class="text-brand-600 dark:text-brand-400 text-xs font-bold tracking-widest uppercase block mb-2">Sección
+                            02</span>
+                        <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-white mb-6">
+                            Identificación de Vulnerabilidades, Análisis de Riesgos y Evaluación de Cumplimiento
+                        </h2>
+
+                        <div class="academic-prose text-slate-700 dark:text-slate-300 text-[15px] space-y-6">
+                            <p>
+                                Las vulnerabilidades en el sistema operativo Windows a menudo surgen de la complejidad
+                                acumulada...
+                            </p>
+
+                            <div
+                                class="my-8 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 p-4">
+                                <figure class="text-center">
+                                    <div
+                                        class="relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-950 group">
+                                        <img src="assets/images/Hardening_Auditoria_Visor_Eventos.png"
+                                            alt="Auditoría de Hardening mediante Visor de Eventos"
+                                            class="mx-auto block h-auto max-h-[380px] object-contain transition-transform duration-300 group-hover:scale-105"
+                                            onerror="handleImageError(this, 'Auditoría con Visor de Eventos', 'Registro de auditoría operativa de CodeIntegrity en el Visor de Eventos.')">
+                                        <div
+                                            class="absolute inset-0 bg-brand-950/20 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center pointer-events-none">
+                                            <span
+                                                class="px-3 py-1.5 bg-slate-900/90 text-xs font-semibold rounded-lg flex items-center gap-1.5"><i
+                                                    data-lucide="zoom-in" class="w-3.5 h-3.5"></i> Ver Imagen
+                                                Real</span>
+                                        </div>
+                                    </div>
+                                    <figcaption class="mt-3 text-xs text-slate-500 dark:text-slate-400 italic">
+                                        Figura 2: Registro operativo de CodeIntegrity en el Visor de Eventos de Windows.
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article id="semana-4"
+                    class="blog-post bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl overflow-hidden shadow-sm hover:shadow-md transition duration-300"
+                    data-tags="seguridad,cumplimiento">
+                    <div class="p-6 sm:p-10">
+                        <div class="academic-prose text-slate-700 dark:text-slate-300 text-[15px] space-y-6">
+                            <div
+                                class="my-8 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 p-4">
+                                <figure class="text-center">
+                                    <div
+                                        class="relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-950 group">
+                                        <img src="assets/images/Criterios_globales_de_seguridad_de_Windows.png"
+                                            alt="Criterios Globales de Seguridad en Windows"
+                                            class="mx-auto block h-auto max-h-[380px] object-contain transition-transform duration-300 group-hover:scale-105"
+                                            onerror="handleImageError(this, 'Criterios Globales de Seguridad de Windows', 'Representación en jerarquía de seguridad.')">
+                                        <div
+                                            class="absolute inset-0 bg-brand-950/20 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center pointer-events-none">
+                                            <span
+                                                class="px-3 py-1.5 bg-slate-900/90 text-xs font-semibold rounded-lg flex items-center gap-1.5"><i
+                                                    data-lucide="zoom-in" class="w-3.5 h-3.5"></i> Ver Imagen
+                                                Real</span>
+                                        </div>
+                                    </div>
+                                    <figcaption class="mt-3 text-xs text-slate-500 dark:text-slate-400 italic">
+                                        Figura 3: Pilares fundamentales jerárquicos indispensables para sostener la
+                                        inmunidad de Windows.
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </main>
+
+    <div id="image-modal"
+        class="fixed inset-0 z-50 bg-slate-950/90 hidden backdrop-blur-md items-center justify-center p-4">
+        <button onclick="closeModal()"
+            class="absolute top-4 right-4 p-3 bg-white/10 hover:bg-white/25 rounded-full text-white transition">
+            <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+        <div class="max-w-4xl w-full text-center">
+            <img id="modal-img" src="" alt="Zoomed Figure"
+                class="mx-auto max-h-[75vh] object-contain rounded-xl shadow-2xl">
+            <h4 id="modal-title" class="text-white text-lg font-bold mt-4"></h4>
+            <p id="modal-desc" class="text-slate-400 text-xs sm:text-sm mt-2 max-w-2xl mx-auto"></p>
+        </div>
+    </div>
+
+    <footer class="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 transition mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-2">
+                    <div class="p-1.5 bg-brand-500 text-white rounded">
+                        <i data-lucide="shield-check" class="w-4 h-4"></i>
+                    </div>
+                    <span class="text-sm font-bold text-slate-900 dark:text-white">Ingeniería de Seguridad Windows ·
+                        Grupo 6</span>
+                </div>
+                <div class="flex flex-wrap gap-4 text-xs text-slate-500 dark:text-slate-400">
+                    <span>Jacho M. M.</span> · <span>Martinez G. S.</span> · <span>Quimiz A. E.</span> · <span>Quiroga
+                        R. A.</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        // Dark/Light Theme Control
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIconLight = document.getElementById('theme-icon-light');
+        const themeIconDark = document.getElementById('theme-icon-dark');
+
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            themeIconLight.classList.remove('hidden');
+            themeIconDark.classList.add('hidden');
+        } else {
+            document.documentElement.classList.remove('dark');
+            themeIconLight.classList.add('hidden');
+            themeIconDark.classList.remove('hidden');
+        }
+
+        themeToggleBtn.addEventListener('click', function () {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('color-theme', 'light');
+                themeIconLight.classList.add('hidden');
+                themeIconDark.classList.remove('hidden');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('color-theme', 'dark');
+                themeIconLight.classList.remove('hidden');
+                themeIconDark.classList.add('hidden');
+            }
+        });
+
+        // Search & Dynamic Filter Engine
+        const searchInput = document.getElementById('blog-search');
+        const posts = document.querySelectorAll('.blog-post');
+
+        function filterPosts() {
+            const query = searchInput.value.toLowerCase().trim();
+            const activeTagBtn = document.querySelector('.tag-btn.bg-brand-500');
+            const activeTag = activeTagBtn ? activeTagBtn.getAttribute('data-tag') : 'todos';
+
+            posts.forEach(post => {
+                const textContent = post.textContent.toLowerCase();
+                const tags = post.getAttribute('data-tags').split(',');
+
+                const matchesSearch = textContent.includes(query);
+                const matchesTag = activeTag === 'todos' || tags.includes(activeTag);
+
+                if (matchesSearch && matchesTag) {
+                    post.classList.remove('hidden');
+                } else {
+                    post.classList.add('hidden');
+                }
+            });
+        }
+
+        searchInput.addEventListener('input', filterPosts);
+
+        function filterByTag(tagName) {
+            const buttons = document.querySelectorAll('.tag-btn');
+            buttons.forEach(btn => {
+                if (btn.getAttribute('data-tag') === tagName) {
+                    btn.className = "tag-btn px-2.5 py-1 rounded-lg text-xs font-medium transition bg-brand-500 text-white";
+                } else {
+                    btn.className = "tag-btn px-2.5 py-1 rounded-lg text-xs font-medium transition bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300";
+                }
+            });
+            filterPosts();
+        }
+
+        // Image Zoom Modal
+        function openImageInModal(src, title, desc) {
+            const modal = document.getElementById('image-modal');
+            const modalImg = document.getElementById('modal-img');
+            const modalTitle = document.getElementById('modal-title');
+            const modalDesc = document.getElementById('modal-desc');
+
+            modalImg.src = src;
+            modalTitle.textContent = title;
+            modalDesc.textContent = desc;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('image-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        document.querySelectorAll('figure').forEach(fig => {
+            const img = fig.querySelector('img');
+            const zoomBtn = fig.querySelector('.group');
+            if (img && zoomBtn) {
+                zoomBtn.addEventListener('click', () => {
+                    openImageInModal(img.src, img.alt, fig.querySelector('figcaption')?.textContent || '');
+                });
+            }
+        });
+
+        // Fallback Vector Diagram generator if images fail to load
+        function handleImageError(imageEl, title, diagramExplanation) {
+            const container = imageEl.parentElement;
+            imageEl.style.display = 'none';
+
+            let svgMockup = '';
+            if (title.includes('Arquitectura')) {
+                svgMockup = `
+                <div class="w-full min-h-[280px] bg-slate-900 text-slate-200 p-6 flex flex-col justify-between items-center font-sans text-xs select-none">
+                    <div class="w-full bg-blue-950/60 border border-blue-800 rounded-xl p-4 text-center">
+                        <span class="bg-blue-900 text-blue-200 px-2 py-0.5 rounded text-[10px] font-bold uppercase mb-2 inline-block">Modo Usuario (Ring 3)</span>
+                        <div class="flex justify-around gap-2 mt-2">
+                            <div class="bg-slate-800 border border-slate-700 p-2 rounded w-1/2">Procesos de Usuario</div>
+                            <div class="bg-amber-900/30 border border-amber-800 p-2 rounded w-1/2 font-bold">LSASS.exe</div>
+                        </div>
+                    </div>
+                    <div class="my-2 text-brand-400 font-mono text-[10px]">System Calls ➔</div>
+                    <div class="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-center">
+                        <span class="bg-slate-800 text-slate-300 px-2 py-0.5 rounded text-[10px] font-bold uppercase mb-2 inline-block">Modo Kernel (Ring 0)</span>
+                        <div class="bg-indigo-950/40 border border-indigo-900 p-2 rounded w-full">Executive Services (SRM, Kernel, HAL)</div>
+                    </div>
+                </div>`;
+            } else {
+                svgMockup = `
+                <div class="w-full min-h-[280px] bg-slate-900 text-slate-400 p-6 flex items-center justify-center font-mono text-xs border border-slate-800 rounded-xl">
+                    <div>[ Generando Vista Esquemática: ${title} ]</div>
+                </div>`;
+            }
+
+            container.innerHTML = `
+                <div onclick="openImageInModal('${imageEl.getAttribute('src')}', '${title}', '${diagramExplanation}')" class="cursor-pointer hover:opacity-95 transition">
+                    ${svgMockup}
+                    <div class="mt-2 p-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-center text-[10px] text-slate-500">
+                        <i data-lucide="info" class="w-3.5 h-3.5 inline-block -mt-0.5 text-brand-500 mr-1"></i> Imagen no encontrada en /assets/images/. Haz clic para ver detalles.
+                    </div>
+                </div>`;
+            lucide.createIcons();
+        }
+    </script>
+</body>
+
+</html>
